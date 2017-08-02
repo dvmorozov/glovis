@@ -1,0 +1,126 @@
+﻿@model web.Models.ViewDeviceOwner
+
+@{
+    ViewBag.Title = "Details of camera owner";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Owners", "Index")
+</p>
+
+<fieldset>
+    <legend>Owner personal data</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">First Name</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.FirstName)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Last Name</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Company</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Company)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">E-Mail</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.EMail)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Phone</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Phone)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Cell</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Cell)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>Owner address</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Apartment/Office</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Apartament)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Building</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Building)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Street</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Street)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">City</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.City)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">State</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.State)
+                </div>
+            </td>
+
+            <td style="border: 0 hidden; width:30%;">
+                <div class="display-label">Country</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Country)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;" colspan="3">
+                <div class="display-label">Zip Code</div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ZipCode)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>

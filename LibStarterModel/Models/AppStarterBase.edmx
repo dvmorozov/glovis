@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AppStarterBaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AppStarterBaseModelStoreContainer">
+          <EntitySet Name="TableExe" EntityType="AppStarterBaseModel.Store.TableExe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableMonitoringLog" EntityType="AppStarterBaseModel.Store.TableMonitoringLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableTask" EntityType="AppStarterBaseModel.Store.TableTask" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableTaskOperationSet" EntityType="AppStarterBaseModel.Store.TableTaskOperationSet" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TableTaskTableMonitoringLog" Association="AppStarterBaseModel.Store.FK_TableTaskTableMonitoringLog">
+            <End Role="TableTask" EntitySet="TableTask" />
+            <End Role="TableMonitoringLog" EntitySet="TableMonitoringLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableTaskTableTaskOperation" Association="AppStarterBaseModel.Store.FK_TableTaskTableTaskOperation">
+            <End Role="TableTask" EntitySet="TableTask" />
+            <End Role="TableTaskOperationSet" EntitySet="TableTaskOperationSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TableExe">
+          <Key>
+            <PropertyRef Name="ExeName" />
+          </Key>
+          <Property Name="ExeName" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="FullExeName" Type="nchar" Nullable="false" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TableMonitoringLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TimeStamp" Type="datetimeoffset" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="TableTaskTaskID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableTaskID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TaskID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Config" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Template" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Process" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Running" Type="bit" Nullable="false" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTaskOperationSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OperationInProgress" Type="bit" Nullable="false" />
+          <Property Name="FinishedSuccessfully" Type="bit" Nullable="false" />
+          <Property Name="OperationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableTaskTaskID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableTaskID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TableTaskTableMonitoringLog">
+          <End Role="TableTask" Type="AppStarterBaseModel.Store.TableTask" Multiplicity="1" />
+          <End Role="TableMonitoringLog" Type="AppStarterBaseModel.Store.TableMonitoringLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTask">
+              <PropertyRef Name="TaskID" />
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableMonitoringLog">
+              <PropertyRef Name="TableTaskTaskID" />
+              <PropertyRef Name="TableTaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableTaskTableTaskOperation">
+          <End Role="TableTask" Type="AppStarterBaseModel.Store.TableTask" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TableTaskOperationSet" Type="AppStarterBaseModel.Store.TableTaskOperationSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTask">
+              <PropertyRef Name="TaskID" />
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableTaskOperationSet">
+              <PropertyRef Name="TableTaskTaskID" />
+              <PropertyRef Name="TableTaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddMonitoringLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Task" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="TimeStamp" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="Reason" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateDeviceStatusByOperation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OperationID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="FinishedSuccessfully" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UpdateProcess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TaskID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Process" Type="nvarchar(max)" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppStarterBaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AppStarterBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TableTask" EntityType="AppStarterBaseModel.TableTask" />
+          <EntitySet Name="TableExe" EntityType="AppStarterBaseModel.TableExe" />
+          <EntitySet Name="TableMonitoringLog" EntityType="AppStarterBaseModel.TableMonitoringLog" />
+          <AssociationSet Name="TableTaskTableMonitoringLog" Association="AppStarterBaseModel.TableTaskTableMonitoringLog">
+            <End Role="TableTask" EntitySet="TableTask" />
+            <End Role="TableMonitoringLog" EntitySet="TableMonitoringLog" />
+          </AssociationSet>
+          <EntitySet Name="TableTaskOperationSet" EntityType="AppStarterBaseModel.TableTaskOperation" />
+          <AssociationSet Name="TableTaskTableTaskOperation" Association="AppStarterBaseModel.TableTaskTableTaskOperation">
+            <End Role="TableTask" EntitySet="TableTask" />
+            <End Role="TableTaskOperation" EntitySet="TableTaskOperationSet" />
+          </AssociationSet>
+          <FunctionImport Name="AddMonitoringLog">
+            <Parameter Name="Task" Mode="In" Type="Guid" />
+            <Parameter Name="TimeStamp" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="Reason" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDeviceStatusByOperation">
+            <Parameter Name="OperationID" Mode="In" Type="Guid" />
+            <Parameter Name="FinishedSuccessfully" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateProcess">
+            <Parameter Name="TaskID" Mode="In" Type="Guid" />
+            <Parameter Name="Process" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="TableTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="TaskID" Type="Guid" Nullable="false" />
+          <Property Name="Config" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Template" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Process" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Running" Type="Boolean" Nullable="false" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <NavigationProperty Name="TableMonitoringLog" Relationship="AppStarterBaseModel.TableTaskTableMonitoringLog" FromRole="TableTask" ToRole="TableMonitoringLog" />
+          <NavigationProperty Name="TableTaskOperation" Relationship="AppStarterBaseModel.TableTaskTableTaskOperation" FromRole="TableTask" ToRole="TableTaskOperation" />
+        </EntityType>
+        <EntityType Name="TableExe">
+          <Key>
+            <PropertyRef Name="ExeName" />
+          </Key>
+          <Property Type="String" Name="ExeName" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="FullExeName" Nullable="false" MaxLength="300" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TableMonitoringLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="DateTimeOffset" Name="TimeStamp" Nullable="false" Precision="7" />
+          <Property Type="String" Name="Reason" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <NavigationProperty Name="TableTask" Relationship="AppStarterBaseModel.TableTaskTableMonitoringLog" FromRole="TableMonitoringLog" ToRole="TableTask" />
+          <Property Type="Guid" Name="TableTaskTaskID" Nullable="false" />
+          <Property Type="Int64" Name="TableTaskID" Nullable="false" />
+        </EntityType>
+        <Association Name="TableTaskTableMonitoringLog">
+          <End Type="AppStarterBaseModel.TableTask" Role="TableTask" Multiplicity="1" />
+          <End Type="AppStarterBaseModel.TableMonitoringLog" Role="TableMonitoringLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTask">
+              <PropertyRef Name="TaskID" />
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableMonitoringLog">
+              <PropertyRef Name="TableTaskTaskID" />
+              <PropertyRef Name="TableTaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TableTaskOperation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="OperationInProgress" Nullable="false" DefaultValue="False" />
+          <Property Type="Boolean" Name="FinishedSuccessfully" Nullable="false" DefaultValue="False" />
+          <Property Type="Guid" Name="OperationID" Nullable="false" />
+          <NavigationProperty Name="TableTask" Relationship="AppStarterBaseModel.TableTaskTableTaskOperation" FromRole="TableTaskOperation" ToRole="TableTask" />
+          <Property Type="Guid" Name="TableTaskTaskID" Nullable="false" />
+          <Property Type="Int64" Name="TableTaskID" Nullable="false" />
+        </EntityType>
+        <Association Name="TableTaskTableTaskOperation">
+          <End Type="AppStarterBaseModel.TableTask" Role="TableTask" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AppStarterBaseModel.TableTaskOperation" Role="TableTaskOperation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableTask">
+              <PropertyRef Name="TaskID" />
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableTaskOperation">
+              <PropertyRef Name="TableTaskTaskID" />
+              <PropertyRef Name="TableTaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AppStarterBaseModelStoreContainer" CdmEntityContainer="AppStarterBaseEntities">
+    <EntitySetMapping Name="TableTask">
+      <EntityTypeMapping TypeName="IsTypeOf(AppStarterBaseModel.TableTask)">
+        <MappingFragment StoreEntitySet="TableTask">
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Config" ColumnName="Config" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Running" ColumnName="Running" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableExe">
+      <EntityTypeMapping TypeName="IsTypeOf(AppStarterBaseModel.TableExe)">
+        <MappingFragment StoreEntitySet="TableExe">
+          <ScalarProperty Name="ExeName" ColumnName="ExeName" />
+          <ScalarProperty Name="FullExeName" ColumnName="FullExeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableMonitoringLog">
+      <EntityTypeMapping TypeName="IsTypeOf(AppStarterBaseModel.TableMonitoringLog)">
+        <MappingFragment StoreEntitySet="TableMonitoringLog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="TableTaskTaskID" ColumnName="TableTaskTaskID" />
+          <ScalarProperty Name="TableTaskID" ColumnName="TableTaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableTaskOperationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AppStarterBaseModel.TableTaskOperation)">
+        <MappingFragment StoreEntitySet="TableTaskOperationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OperationInProgress" ColumnName="OperationInProgress" />
+          <ScalarProperty Name="FinishedSuccessfully" ColumnName="FinishedSuccessfully" />
+          <ScalarProperty Name="OperationID" ColumnName="OperationID" />
+          <ScalarProperty Name="TableTaskTaskID" ColumnName="TableTaskTaskID" />
+          <ScalarProperty Name="TableTaskID" ColumnName="TableTaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddMonitoringLog" FunctionName="AppStarterBaseModel.Store.AddMonitoringLog" />
+          <FunctionImportMapping FunctionImportName="UpdateDeviceStatusByOperation" FunctionName="AppStarterBaseModel.Store.UpdateDeviceStatusByOperation" />
+          <FunctionImportMapping FunctionImportName="UpdateProcess" FunctionName="AppStarterBaseModel.Store.UpdateProcess" />
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="AppStarterBase">
+        <EntityTypeShape EntityType="AppStarterBaseModel.TableTask" Width="2" PointX="0.5" PointY="0.75" Height="2.5571907552083339" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppStarterBaseModel.TableExe" Width="2.625" PointX="3" PointY="0.75" Height="1.2636116536458335" />
+        <EntityTypeShape EntityType="AppStarterBaseModel.TableMonitoringLog" Width="2.625" PointX="3" PointY="3" Height="1.5788378906249996" />
+        <AssociationConnector Association="AppStarterBaseModel.TableTaskTableMonitoringLog">
+          <ConnectorPoint PointX="1.5" PointY="3.3071907552083339" />
+          <ConnectorPoint PointX="1.5" PointY="4.0862939453125" />
+          <ConnectorPoint PointX="3" PointY="4.0862939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="AppStarterBaseModel.TableTaskOperation" Width="2.875" PointX="6.625" PointY="0.75" Height="1.787985026041667" />
+        <AssociationConnector Association="AppStarterBaseModel.TableTaskTableTaskOperation" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="2.5766910807291667" />
+          <ConnectorPoint PointX="6.625" PointY="2.5766910807291667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

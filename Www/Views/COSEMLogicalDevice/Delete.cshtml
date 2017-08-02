@@ -1,0 +1,49 @@
+﻿@using System.Globalization
+@model web.Models.ViewCOSEMLogicalDevice
+
+@{
+    ViewBag.Title = "Delete the COSEM logical device";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Delete the COSEM logical device</h2>
+
+<p>
+    @Html.ActionLink("Logical Devices", "Index/" + Model.DeviceTypeID.ToString(CultureInfo.InvariantCulture))
+</p>
+
+<h3>Are you sure you want to delete this COSEM logical device?</h3>
+<fieldset>
+    <legend>COSEM logical device properties</legend>
+
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.DeviceTypeID)
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Name</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Device type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DeviceTypeName)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}

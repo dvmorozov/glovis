@@ -1,0 +1,118 @@
+﻿@using System.Globalization
+@model web.Models.ViewDevice
+
+@{
+    ViewBag.Title = "Details of camera";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Details of camera</h2>
+
+<p>
+    @Html.ActionLink("Edit", "EditCamera", new { id=Model.ID }) |
+    @Html.ActionLink(Model.LocationAddressID == null ? "Locate" : "Location", Model.LocationAddressID == null ? "CreateCountry" : "Details/" + Model.LocationAddressID.ToString(), "Address", new { returnto = "Device/SetAddress/" + Model.ID.ToString(CultureInfo.InvariantCulture) }, null) |
+    @Html.ActionLink("Owner", "SetOwner", "DeviceOwner", new { id = Model.ID, returnto = "Device/SetOwner/" + Model.ID.ToString(CultureInfo.InvariantCulture) }, null) |
+    @Html.ActionLink("Cameras", "Index")
+</p>
+
+<fieldset>
+    <legend>Camera properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera name</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Group</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.GroupName)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DeviceTypeName, "Camera type")
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Internal address</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.InternalAddress)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Primary IP</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.IP1) . 
+                    @Html.DisplayFor(model => model.IP2) . 
+                    @Html.DisplayFor(model => model.IP3) .
+                    @Html.DisplayFor(model => model.IP4)
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Primary port</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Port)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Secondary IP</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if(null != Model.SecondaryIP1)
+                    {
+                        @Html.DisplayFor(model => model.SecondaryIP1) @Html.Raw(" . ") 
+                        @Html.DisplayFor(model => model.SecondaryIP2) @Html.Raw(" . ")
+                        @Html.DisplayFor(model => model.SecondaryIP3) @Html.Raw(" . ")
+                        @Html.DisplayFor(model => model.SecondaryIP4)
+                    }
+                    else
+                    {
+                        @Html.Raw("not assigned")
+                    }
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Secondary port</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if (null != Model.SecondaryPort)
+                    {
+                        @Html.DisplayFor(model => model.SecondaryPort)
+                    }
+                    else
+                    { 
+                        @Html.Raw("not assigned")
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>

@@ -1,0 +1,91 @@
+﻿@model web.Models.ViewCOSEMClass
+
+@{
+    ViewBag.Title = "Delete the COSEM class";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Delete the COSEM class</h2>
+
+<p>
+    @Html.ActionLink("Classes", "Index")
+</p>
+
+<h3>Are you sure you want to delete this COSEM class?</h3>
+<fieldset>
+    <legend>COSEM class properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Class name</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ClassName)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Min. cardinality</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CardinalityMin)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Max. cardinality</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.CardinalityMax)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Identificator</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.COSEMClassID)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Version</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Version)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Standard</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Standard)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}

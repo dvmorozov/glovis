@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OonzeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="OonzeModelStoreContainer">
+          <EntitySet Name="TableDevice" EntityType="OonzeModel.Store.TableDevice" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableYouTubeAttribute" EntityType="OonzeModel.Store.TableYouTubeAttribute" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableYouTubeAttributeKeyword" EntityType="OonzeModel.Store.TableYouTubeAttributeKeyword" store:Type="Tables" store:Schema="dbo" store:Name="TableYouTubeAttributeKeyword">
+            <DefiningQuery>SELECT 
+      [TableYouTubeAttributeKeyword].[AttributeId] AS [AttributeId], 
+      [TableYouTubeAttributeKeyword].[KeywordId] AS [KeywordId]
+      FROM [dbo].[TableYouTubeAttributeKeyword] AS [TableYouTubeAttributeKeyword]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TableYouTubeAttributeTag" EntityType="OonzeModel.Store.TableYouTubeAttributeTag" store:Type="Tables" store:Schema="dbo" store:Name="TableYouTubeAttributeTag">
+            <DefiningQuery>SELECT 
+      [TableYouTubeAttributeTag].[AttributeId] AS [AttributeId], 
+      [TableYouTubeAttributeTag].[TagId] AS [TagId]
+      FROM [dbo].[TableYouTubeAttributeTag] AS [TableYouTubeAttributeTag]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TableYouTubeKeyword" EntityType="OonzeModel.Store.TableYouTubeKeyword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TableYouTubeTag" EntityType="OonzeModel.Store.TableYouTubeTag" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TableAttributeTag_TableYouTubeAttribute" Association="OonzeModel.Store.FK_TableAttributeTag_TableYouTubeAttribute">
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+            <End Role="TableYouTubeAttributeTag" EntitySet="TableYouTubeAttributeTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableAttributeTag_TableYouTubeTag" Association="OonzeModel.Store.FK_TableAttributeTag_TableYouTubeTag">
+            <End Role="TableYouTubeTag" EntitySet="TableYouTubeTag" />
+            <End Role="TableYouTubeAttributeTag" EntitySet="TableYouTubeAttributeTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableYouTubeAttributeKeyword_TableYouTubeAttribute" Association="OonzeModel.Store.FK_TableYouTubeAttributeKeyword_TableYouTubeAttribute">
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+            <End Role="TableYouTubeAttributeKeyword" EntitySet="TableYouTubeAttributeKeyword" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableYouTubeAttributeKeyword_TableYouTubeKeyword" Association="OonzeModel.Store.FK_TableYouTubeAttributeKeyword_TableYouTubeKeyword">
+            <End Role="TableYouTubeKeyword" EntitySet="TableYouTubeKeyword" />
+            <End Role="TableYouTubeAttributeKeyword" EntitySet="TableYouTubeAttributeKeyword" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableYouTubeAttributes_TableDevice" Association="OonzeModel.Store.FK_TableYouTubeAttributes_TableDevice">
+            <End Role="TableDevice" EntitySet="TableDevice" />
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TableDevice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" MaxLength="20" />
+          <Property Name="InternalAddress" Type="char" MaxLength="10" />
+          <Property Name="AddressType" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="Port" Type="char" MaxLength="5" />
+          <Property Name="GroupID" Type="bigint" Nullable="false" />
+          <Property Name="TypeID" Type="bigint" Nullable="false" />
+          <Property Name="OwnerID" Type="bigint" />
+          <Property Name="IP1" Type="char" MaxLength="3" />
+          <Property Name="IP2" Type="char" MaxLength="3" />
+          <Property Name="IP3" Type="char" MaxLength="3" />
+          <Property Name="IP4" Type="char" MaxLength="3" />
+          <Property Name="SecondaryPort" Type="char" MaxLength="5" />
+          <Property Name="SecondaryIP1" Type="char" MaxLength="3" />
+          <Property Name="SecondaryIP2" Type="char" MaxLength="3" />
+          <Property Name="SecondaryIP3" Type="char" MaxLength="3" />
+          <Property Name="SecondaryIP4" Type="char" MaxLength="3" />
+          <Property Name="DataOwnerID" Type="uniqueidentifier" />
+          <Property Name="LocationAddressID" Type="bigint" />
+          <Property Name="BillAddressID" Type="bigint" />
+          <Property Name="LocationID" Type="bigint" />
+          <Property Name="SaveSessions" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableYouTubeAttribute">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Oonze.dbo.TableYouTubeAttributeKeyword' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TableYouTubeAttributeKeyword">
+          <Key>
+            <PropertyRef Name="AttributeId" />
+            <PropertyRef Name="KeywordId" />
+          </Key>
+          <Property Name="AttributeId" Type="bigint" Nullable="false" />
+          <Property Name="KeywordId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Oonze.dbo.TableYouTubeAttributeTag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TableYouTubeAttributeTag">
+          <Key>
+            <PropertyRef Name="AttributeId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="AttributeId" Type="bigint" Nullable="false" />
+          <Property Name="TagId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableYouTubeKeyword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TableYouTubeTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TableAttributeTag_TableYouTubeAttribute">
+          <End Role="TableYouTubeAttribute" Type="OonzeModel.Store.TableYouTubeAttribute" Multiplicity="1" />
+          <End Role="TableYouTubeAttributeTag" Type="OonzeModel.Store.TableYouTubeAttributeTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableYouTubeAttribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttributeTag">
+              <PropertyRef Name="AttributeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableAttributeTag_TableYouTubeTag">
+          <End Role="TableYouTubeTag" Type="OonzeModel.Store.TableYouTubeTag" Multiplicity="1" />
+          <End Role="TableYouTubeAttributeTag" Type="OonzeModel.Store.TableYouTubeAttributeTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableYouTubeTag">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttributeTag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableYouTubeAttributeKeyword_TableYouTubeAttribute">
+          <End Role="TableYouTubeAttribute" Type="OonzeModel.Store.TableYouTubeAttribute" Multiplicity="1" />
+          <End Role="TableYouTubeAttributeKeyword" Type="OonzeModel.Store.TableYouTubeAttributeKeyword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableYouTubeAttribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttributeKeyword">
+              <PropertyRef Name="AttributeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableYouTubeAttributeKeyword_TableYouTubeKeyword">
+          <End Role="TableYouTubeKeyword" Type="OonzeModel.Store.TableYouTubeKeyword" Multiplicity="1" />
+          <End Role="TableYouTubeAttributeKeyword" Type="OonzeModel.Store.TableYouTubeAttributeKeyword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableYouTubeKeyword">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttributeKeyword">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableYouTubeAttributes_TableDevice">
+          <End Role="TableDevice" Type="OonzeModel.Store.TableDevice" Multiplicity="1" />
+          <End Role="TableYouTubeAttribute" Type="OonzeModel.Store.TableYouTubeAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableDevice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttribute">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OonzeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="YouTubeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TableYouTubeAttribute" EntityType="OonzeModel.TableYouTubeAttribute" />
+          <EntitySet Name="TableYouTubeKeyword" EntityType="OonzeModel.TableYouTubeKeyword" />
+          <EntitySet Name="TableYouTubeTag" EntityType="OonzeModel.TableYouTubeTag" />
+          <AssociationSet Name="TableYouTubeAttributeKeyword" Association="OonzeModel.TableYouTubeAttributeKeyword">
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+            <End Role="TableYouTubeKeyword" EntitySet="TableYouTubeKeyword" />
+          </AssociationSet>
+          <AssociationSet Name="TableYouTubeAttributeTag" Association="OonzeModel.TableYouTubeAttributeTag">
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+            <End Role="TableYouTubeTag" EntitySet="TableYouTubeTag" />
+          </AssociationSet>
+          <EntitySet Name="TableDevice" EntityType="OonzeModel.TableDevice" />
+          <AssociationSet Name="FK_TableYouTubeAttributes_TableDevice" Association="OonzeModel.FK_TableYouTubeAttributes_TableDevice">
+            <End Role="TableDevice" EntitySet="TableDevice" />
+            <End Role="TableYouTubeAttribute" EntitySet="TableYouTubeAttribute" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TableYouTubeAttribute">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="DeviceID" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableYouTubeKeyword" Relationship="OonzeModel.TableYouTubeAttributeKeyword" FromRole="TableYouTubeAttribute" ToRole="TableYouTubeKeyword" />
+          <NavigationProperty Name="TableYouTubeTag" Relationship="OonzeModel.TableYouTubeAttributeTag" FromRole="TableYouTubeAttribute" ToRole="TableYouTubeTag" />
+          <NavigationProperty Name="TableDevice" Relationship="OonzeModel.FK_TableYouTubeAttributes_TableDevice" FromRole="TableYouTubeAttribute" ToRole="TableDevice" />
+        </EntityType>
+        <EntityType Name="TableYouTubeKeyword">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Keyword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableYouTubeAttribute" Relationship="OonzeModel.TableYouTubeAttributeKeyword" FromRole="TableYouTubeKeyword" ToRole="TableYouTubeAttribute" />
+        </EntityType>
+        <EntityType Name="TableYouTubeTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Tag" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TableYouTubeAttribute" Relationship="OonzeModel.TableYouTubeAttributeTag" FromRole="TableYouTubeTag" ToRole="TableYouTubeAttribute" />
+        </EntityType>
+        <Association Name="TableYouTubeAttributeKeyword">
+          <End Type="OonzeModel.TableYouTubeAttribute" Role="TableYouTubeAttribute" Multiplicity="*" />
+          <End Type="OonzeModel.TableYouTubeKeyword" Role="TableYouTubeKeyword" Multiplicity="*" />
+        </Association>
+        <Association Name="TableYouTubeAttributeTag">
+          <End Type="OonzeModel.TableYouTubeAttribute" Role="TableYouTubeAttribute" Multiplicity="*" />
+          <End Type="OonzeModel.TableYouTubeTag" Role="TableYouTubeTag" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TableDevice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="InternalAddress" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="AddressType" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Port" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Type="Int64" Name="GroupID" Nullable="false" />
+          <Property Type="Int64" Name="TypeID" Nullable="false" />
+          <Property Type="Int64" Name="OwnerID" />
+          <Property Type="String" Name="IP1" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IP2" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IP3" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IP4" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="SecondaryPort" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="SecondaryIP1" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="SecondaryIP2" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="SecondaryIP3" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="SecondaryIP4" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="Guid" Name="DataOwnerID" />
+          <Property Type="Int64" Name="LocationAddressID" />
+          <Property Type="Int64" Name="BillAddressID" />
+          <Property Type="Int64" Name="LocationID" />
+          <Property Type="Boolean" Name="SaveSessions" Nullable="false" />
+          <NavigationProperty Name="TableYouTubeAttribute" Relationship="OonzeModel.FK_TableYouTubeAttributes_TableDevice" FromRole="TableDevice" ToRole="TableYouTubeAttribute" />
+        </EntityType>
+        <Association Name="FK_TableYouTubeAttributes_TableDevice">
+          <End Type="OonzeModel.TableDevice" Role="TableDevice" Multiplicity="1" />
+          <End Type="OonzeModel.TableYouTubeAttribute" Role="TableYouTubeAttribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableDevice">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TableYouTubeAttribute">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OonzeModelStoreContainer" CdmEntityContainer="YouTubeEntities">
+          <EntitySetMapping Name="TableYouTubeAttribute">
+            <EntityTypeMapping TypeName="OonzeModel.TableYouTubeAttribute">
+              <MappingFragment StoreEntitySet="TableYouTubeAttribute">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableYouTubeKeyword">
+            <EntityTypeMapping TypeName="OonzeModel.TableYouTubeKeyword">
+              <MappingFragment StoreEntitySet="TableYouTubeKeyword">
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableYouTubeTag">
+            <EntityTypeMapping TypeName="OonzeModel.TableYouTubeTag">
+              <MappingFragment StoreEntitySet="TableYouTubeTag">
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TableYouTubeAttributeKeyword" TypeName="OonzeModel.TableYouTubeAttributeKeyword" StoreEntitySet="TableYouTubeAttributeKeyword">
+            <EndProperty Name="TableYouTubeKeyword">
+              <ScalarProperty Name="ID" ColumnName="KeywordId" />
+            </EndProperty>
+            <EndProperty Name="TableYouTubeAttribute">
+              <ScalarProperty Name="ID" ColumnName="AttributeId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TableYouTubeAttributeTag" TypeName="OonzeModel.TableYouTubeAttributeTag" StoreEntitySet="TableYouTubeAttributeTag">
+            <EndProperty Name="TableYouTubeTag">
+              <ScalarProperty Name="ID" ColumnName="TagId" />
+            </EndProperty>
+            <EndProperty Name="TableYouTubeAttribute">
+              <ScalarProperty Name="ID" ColumnName="AttributeId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="TableDevice">
+            <EntityTypeMapping TypeName="OonzeModel.TableDevice">
+              <MappingFragment StoreEntitySet="TableDevice">
+                <ScalarProperty Name="SaveSessions" ColumnName="SaveSessions" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="BillAddressID" ColumnName="BillAddressID" />
+                <ScalarProperty Name="LocationAddressID" ColumnName="LocationAddressID" />
+                <ScalarProperty Name="DataOwnerID" ColumnName="DataOwnerID" />
+                <ScalarProperty Name="SecondaryIP4" ColumnName="SecondaryIP4" />
+                <ScalarProperty Name="SecondaryIP3" ColumnName="SecondaryIP3" />
+                <ScalarProperty Name="SecondaryIP2" ColumnName="SecondaryIP2" />
+                <ScalarProperty Name="SecondaryIP1" ColumnName="SecondaryIP1" />
+                <ScalarProperty Name="SecondaryPort" ColumnName="SecondaryPort" />
+                <ScalarProperty Name="IP4" ColumnName="IP4" />
+                <ScalarProperty Name="IP3" ColumnName="IP3" />
+                <ScalarProperty Name="IP2" ColumnName="IP2" />
+                <ScalarProperty Name="IP1" ColumnName="IP1" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+                <ScalarProperty Name="InternalAddress" ColumnName="InternalAddress" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="OonzeModel.TableYouTubeAttribute" Width="1.5" PointX="0.75" PointY="1.875" Height="2.1473193359374991" />
+        <EntityTypeShape EntityType="OonzeModel.TableYouTubeKeyword" Width="3" PointX="3" PointY="1" Height="1.5788378906249996" />
+        <EntityTypeShape EntityType="OonzeModel.TableYouTubeTag" Width="3" PointX="3" PointY="3.375" Height="1.5788378906249996" />
+        <AssociationConnector Association="OonzeModel.TableYouTubeAttributeKeyword" >
+          <ConnectorPoint PointX="2.25" PointY="2.2269189453125" />
+          <ConnectorPoint PointX="3" PointY="2.2269189453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="OonzeModel.TableYouTubeAttributeTag" >
+          <ConnectorPoint PointX="2.25" PointY="3.7934065755208333" />
+          <ConnectorPoint PointX="3" PointY="3.7934065755208333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="OonzeModel.TableDevice" Width="1.5" PointX="0.75" PointY="11.875" Height="5.3687141927083317" />
+        <AssociationConnector Association="OonzeModel.FK_TableYouTubeAttributes_TableDevice" >
+          <ConnectorPoint PointX="1.5" PointY="11.875" />
+          <ConnectorPoint PointX="1.5" PointY="4.2118131510416665" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

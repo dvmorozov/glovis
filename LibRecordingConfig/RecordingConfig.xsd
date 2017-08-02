@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:vfm="urn:xmlns:RecordingConfig" elementFormDefault="qualified" targetNamespace="urn:xmlns:RecordingConfig" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RecordingConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PortalDomain" type="xs:string" default="rationalcity.com"></xs:element>
+        <xs:element name="PortalPort" type="xs:int" default="80"></xs:element>
+        <xs:element name="PortalUserName" type="xs:string" default="Administrator"></xs:element>
+        <xs:element name="PortalPassword" type="xs:string" default=""></xs:element>
+        <xs:element name="SourceDomain" type="xs:string" default="localhost"></xs:element>
+        <xs:element name="SourcePort" type="xs:int" default="8081"></xs:element>
+        <xs:element name="FragmentLength" type="xs:int" default="20"></xs:element>
+        <xs:element name="VideoProxyPort" type="xs:int" default="8080"></xs:element>
+        <xs:element name="Sensitivity" type="xs:int" default="50"></xs:element>
+        <xs:element name="ProxyCommandLine" type="xs:string" default=""></xs:element>
+        <xs:element name="RecordingCommandLine" type="xs:string" default=""></xs:element>
+        <xs:element name="NoAudio" type="xs:boolean" default="true"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

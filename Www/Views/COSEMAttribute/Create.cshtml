@@ -1,0 +1,114 @@
+﻿@using System.Globalization
+@model web.Models.ViewCOSEMAttribute
+
+@{
+    ViewBag.Title = "Add a new COSEM class attribute";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Attributes", "Index/" + Model.COSEMClassID.ToString(CultureInfo.InvariantCulture))
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>COSEM attribute properties</legend>
+
+        @Html.HiddenFor(model => model.COSEMClassID)
+
+        <table style="width:100%;">
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Dynamic)
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Dynamic)
+                        @Html.ValidationMessageFor(model => model.Dynamic)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name)
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.COSEMDataTypeID, "COSEM data type")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.DropDownList("COSEMDataTypeID")
+                        @Html.ValidationMessageFor(model => model.COSEMDataTypeID)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.MinValue)
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MinValue)
+                        @Html.ValidationMessageFor(model => model.MinValue)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.MaxValue)
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MaxValue)
+                        @Html.ValidationMessageFor(model => model.MaxValue)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.DefValue)
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.DefValue)
+                        @Html.ValidationMessageFor(model => model.DefValue)
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <p>
+        <input type="submit" value="Add" />
+    </p>
+}

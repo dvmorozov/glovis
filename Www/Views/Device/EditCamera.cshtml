@@ -1,0 +1,107 @@
+﻿@model web.Models.ViewDevice
+
+@{
+    ViewBag.Title = "Edit camera properties";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Cameras", "Index")
+</p>
+
+@using (Html.BeginForm("EditCamera", "Device"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Camera properties</legend>
+
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.AddressType)
+        @Html.HiddenFor(model => model.OwnerID)
+        @Html.HiddenFor(model => model.TypeID)
+
+        <table style="width:100%;">
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name, "Camera name")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </td>
+
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.GroupID, "Group")
+                    </div>
+                </td>
+	            <td style="border: 0 hidden;">
+		            <div class="editor-field">
+			            @Html.DropDownList("GroupID")
+			            @Html.ValidationMessageFor(model => model.GroupID)
+		            </div>
+	            </td>
+				
+                <td style="border: 0 hidden;">
+                </td>
+                <td style="border: 0 hidden;">
+                </td>
+            </tr>
+	        <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+						@Html.Raw("Domain") <small>@Html.Raw(" (preferred if given)")</small>
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Domain)
+                        @Html.ValidationMessageFor(model => model.Domain)
+                    </div>
+                </td>
+
+		        <td style="border: 0 hidden;">
+			        <div class="editor-label">
+				        @Html.Raw("IP")
+			        </div>
+		        </td>
+		        <td style="border: 0 hidden;">
+			        <div class="editor-field">
+				        @Html.TextBoxFor(model => model.IP1, new { style = "width:33px;" })
+				        @Html.ValidationMessageFor(model => model.IP1) . 
+				        @Html.TextBoxFor(model => model.IP2, new { style = "width:33px;" })
+				        @Html.ValidationMessageFor(model => model.IP2) .
+				        @Html.TextBoxFor(model => model.IP3, new { style = "width:33px;" })
+				        @Html.ValidationMessageFor(model => model.IP3) .
+				        @Html.TextBoxFor(model => model.IP4, new { style = "width:33px;" })
+				        @Html.ValidationMessageFor(model => model.IP4)
+			        </div>
+		        </td>
+
+		        <td style="border: 0 hidden">
+			        <div class="editor-label">
+				        @Html.LabelFor(model => model.Port, "Port")
+			        </div>
+		        </td>
+		        <td style="border: 0 hidden;">
+			        <div class="editor-field">
+				        @Html.TextBoxFor(model => model.Port, new { style = "width:50px;" })
+				        @Html.ValidationMessageFor(model => model.Port)
+			        </div>
+		        </td>
+	        </tr>
+        </table>
+    </fieldset>
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+}

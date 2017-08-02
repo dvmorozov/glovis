@@ -1,0 +1,60 @@
+﻿@model web.Models.ViewGroup
+
+@{
+    ViewBag.Title = "Delete the group";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+    var error = false;
+}
+
+<p>
+    @Html.ActionLink("Groups", "Index")
+</p>
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+@if ((ViewBag.ExceptionMessage != null) && (ViewBag.ExceptionMessage != "")) { error = true; }
+
+<h3>
+    @(error ? Html.Raw("Error occured: " + (String) ViewBag.ExceptionMessage) : Html.Raw("Are you sure you want to delete this group?"))
+</h3>
+
+<fieldset>
+    <legend>Group properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Group</div>
+            </td>
+
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if (Model != null) { @Html.DisplayFor(model => model.Name)
+                    }
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if (Model != null) { @Html.DisplayFor(model => model.DeviceType)
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+@if (!error)
+{
+    using (Html.BeginForm())
+    {
+    <p>
+        <input type="submit" value="Delete" name="Submit" id="Submit" />
+    </p>
+    }
+}

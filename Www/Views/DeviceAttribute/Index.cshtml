@@ -1,0 +1,60 @@
+﻿@model IEnumerable<web.Models.ViewCOSEMAttributeValue>
+
+@{
+    ViewBag.Title = "Attributes for object \"" + ViewBag.ObjectName + "\"" + " of " + "\"" + ViewBag.DeviceName + "\"";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+
+    var grid = new WebGrid(Model,
+                           defaultSort: "AttributeID",
+                           rowsPerPage: 20);
+}
+
+<h2>Attributes for object "@Html.Raw(ViewBag.ObjectName)" of device "@Html.Raw(ViewBag.DeviceName)" ("@Html.Raw(ViewBag.DeviceTypeName)")</h2>
+
+<p>
+    @Html.ActionLink("Objects", "Index", "DeviceObject", new { id = (long)ViewBag.LogicalDeviceID, ViewBag.deviceid }, null)
+</p>
+
+<div> 
+    @grid.GetHtml(
+        tableStyle: "grid",
+        headerStyle: "head",
+        alternatingRowStyle: "alt",
+        columns: grid.Columns(
+            grid.Column("Name", "Attribute", style: "product"),
+            grid.Column("Identifier", "Identifier", style: "product"),
+            grid.Column("COSEMDataTypeName", "COSEM Type", style: "product"),
+            grid.Column("ValueIdentifier", "In Acq. List", @<text>            
+                @if (null == item.ValueIdentifier)
+                {
+                    <span class="ui-icon ui-state-highlight ui-icon-closethick" title="No"></span>
+                }
+                else
+                { 
+                    <span class="ui-icon ui-state-highlight ui-icon-check" title="Yes"></span>
+                }
+                </text>, style: "product"),
+            grid.Column("AttributeID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("AddAttrToCollectList", "DeviceAttribute", new { id = item.AttributeID, deviceid = (long)ViewBag.DeviceID, logicaldeviceid = (long)ViewBag.LogicalDeviceID, objectid = (long)ViewBag.ObjectID }) + "\"><input type=\"submit\" value=\"Add\" /></form>")</text>, style: "product", canSort: false),
+            grid.Column("AttributeID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("DeleteAttrFromCollectList", "DeviceAttribute", new { id = item.AttributeID, deviceid = (long)ViewBag.DeviceID, logicaldeviceid = (long)ViewBag.LogicalDeviceID, objectid = (long)ViewBag.ObjectID }) + "\"><input type=\"submit\" value=\"Delete\" /></form>")</text>, style: "product", canSort: false)
+        ),
+        numericLinksCount: 20)
+</div>
+
+<div style="margin-left:22em; margin-top:0.5em;">
+    <div style="display: inline-block; list-style: none; text-align:right;">
+        @using (Html.BeginForm((String)("AddAllAttrToCollectList/" + ViewBag.DeviceID.ToString()), "DeviceAttribute"))
+        {
+            @Html.Hidden("LogicalDeviceID", (long)ViewBag.LogicalDeviceID)
+            @Html.Hidden("ObjectID", (long)ViewBag.ObjectID)
+            <input type="submit" value="Add All" />
+        }
+    </div>
+    <div style="display: inline-block; list-style: none; text-align:right;">
+        @using (Html.BeginForm((String)("DeleteAllAttrFromCollectList/" + ViewBag.DeviceID.ToString()), "DeviceAttribute"))
+        {
+            @Html.Hidden("LogicalDeviceID", (long)ViewBag.LogicalDeviceID)
+            @Html.Hidden("ObjectID", (long)ViewBag.ObjectID)
+            <input type="submit" value="Delete All" />
+        }
+    </div>
+</div>

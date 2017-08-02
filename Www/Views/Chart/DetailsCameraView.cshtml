@@ -1,0 +1,52 @@
+﻿@model web.Models.ViewChart
+
+@{
+    ViewBag.Title = "View details";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw("Details of view" + " \"" + Model.Name.TrimEnd() + "\"")</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Screens", "Index")
+</p>
+
+<fieldset>
+    <legend>View properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Title</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">View width (pixels)</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Width)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">View height (pixels)</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Height)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>

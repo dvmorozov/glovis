@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	
+	<link href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")" rel="stylesheet" type="text/css" media="all" />
+	<link href="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" media="all" />
+
+	<link href="@Url.Content("~/Content/Site_140414.css")" rel="stylesheet" type="text/css" />
+	
+	<script src="@Url.Content("https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ui/UI.js")" type="text/javascript"></script>
+
+	@*<script type="text/javascript" src="http://releases.flowplayer.org/js/flowplayer-3.2.11.min.js"></script>*@
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,600,700,100' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+		window.onload = function () {
+			var v = document.getElementById('Submit');
+			if (null != v) v.focus();
+		};
+	</script>
+
+@* ReSharper disable UnusedParameter *@
+	@* ReSharper disable StatementIsNotTerminated *@
+	@*
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-52589024-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	*@
+	
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-63821967-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+	@* ReSharper restore StatementIsNotTerminated *@
+@* ReSharper restore UnusedParameter *@
+@* ReSharper disable UnknownCssClass *@
+</head>
+	<body id="glovis">
+		<div class="page">
+			<div id="header">
+				<div id="menucontainer">
+					<div id="title">
+						<div class="logo">
+							@if (null != User.Identity.Name && !User.Identity.Name.IsEmpty() /*should be!*/)
+							{
+								<text>@Html.Raw((String)ViewBag.AppName1)<span>@Html.Raw((String)ViewBag.AppName2)</span><span>greets @User.Identity.Name</span></text>
+							}
+							else
+							{
+								<text>@Html.Raw((String)ViewBag.AppName1)<span>@Html.Raw((String)ViewBag.AppName2)</span></text>
+							}
+						</div>
+					</div>
+					<ul id="menu">
+						@* https://www.evernote.com/shard/s132/nl/14501366/84f3d8eb-d5ab-4b30-86fa-99353be08492 *@
+						@* Additional information is disabled in the distributive version. *@
+						@if (Roles.IsUserInRole(User.Identity.Name, "Administrator") || Roles.IsUserInRole(User.Identity.Name, "User") || !ViewBag.Demo)
+						{
+							@Html.Raw("&#32;<li>") @Html.ActionLink("Groups", "Index", "Group") @Html.Raw("</li>")
+							@Html.Raw("&#32;<li>") @Html.ActionLink("Matrices", "Index", "ChartSet") @Html.Raw("</li>")
+						}
+						else
+						{
+							@Html.Raw("&#32;")
+						@* <li>@Html.ActionLink("Data", "Upload", "Data")</li> *@
+							<li>@Html.ActionLink("Demo", "Demo", "Home")</li>
+						@* <li>@Html.ActionLink("About", "About", "Home")</li> *@
+							<li>@Html.ActionLink("Use Cases", "UseCases", "Home") </li>
+							<li>@Html.ActionLink("Features", "Features", "Home") </li>
+							<li>@Html.ActionLink("Components", "Components", "Home") </li>
+						@* <li>@Html.ActionLink("Current State", "CurrentState", "Home") </li> *@
+							<li>@Html.ActionLink("Home", "Index", "Home")</li>
+						}
+						<li>@Html.Partial("_LogOnPartial")</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container" style="width: 100%;">
+				<div class="row">
+					<div class="col-md-8">
+						<div @Html.Raw("id=\"main_glovis\"")>
+							@RenderBody()
+						</div>
+					</div>
+					<div class="col-md-4" style="text-align: right;">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Big vertical banner at Oonze.com -->
+						<ins class="adsbygoogle"
+							 style="display:inline-block;width:300px;height:600px"
+							 data-ad-client="ca-pub-8470958084127593"
+							 data-ad-slot="5340048261"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				Copyright &copy; 2012-2016 <span class="logo" style="position:relative;">@Html.Raw((String)ViewBag.AppName1)<span>@Html.Raw((String)ViewBag.AppName2)</span></span> | Revision 4085 | Last updated 04 Sep 2016 at 13:27:36
+			</div>
+		</div>
+	</body>
+</html>
+@* ReSharper restore UnknownCssClass *@

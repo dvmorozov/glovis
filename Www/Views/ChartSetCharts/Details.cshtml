@@ -1,0 +1,41 @@
+﻿@model web.Models.ViewChartSetsCharts
+
+@{
+    ViewBag.Title = "Details of view \"" + Model.ChartName.TrimEnd() + "\"";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ChartSetID, chartid = Model.ChartID }) |
+    @Html.ActionLink("Screens", "Index", new { id = Model.ChartSetID })
+</p>
+
+<fieldset>
+    <legend>View Properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Row Index</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.RowIndex)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Col Index</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="editor-field">
+                    @Html.DisplayFor(model => model.ColIndex)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>

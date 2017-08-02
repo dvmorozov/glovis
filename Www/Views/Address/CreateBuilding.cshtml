@@ -1,0 +1,40 @@
+﻿@model web.Models.ViewAddress
+
+@{
+    ViewBag.Title = "Add building number";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Add building number</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Locations", "Index") |
+    @Html.ActionLink("Change", "Select")
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.Hidden("returnTo", (String)ViewBag.ReturnTo)
+    @Html.Hidden("countryID", (Int64)ViewBag.CountryID)
+    @Html.Hidden("stateID", (Int64)ViewBag.StateID)
+    @Html.Hidden("cityID", (Int64)ViewBag.CityID)
+    @Html.Hidden("streetID", (Int64)ViewBag.StreetID)
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Building)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Building)
+            @Html.ValidationMessageFor(model => model.Building)
+        </div>
+    </fieldset>
+<p>
+    <input type="submit" value="Add Value" />
+</p>
+}

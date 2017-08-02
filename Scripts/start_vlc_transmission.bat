@@ -1,0 +1,2 @@
+start vlc -I none dshow:// :dshow-vdev="Logitech HD Webcam C270"    :dshow-adev=none :dshow-size=640x480 :live-caching=300 :sout=#transcode{vcodec=theo,vb=800,acodec=vorb,ab=128,channels=2,samplerate=44100}:http{mux=ogg,dst=:8080/} :sout-keep
+start vlc -I none dshow:// :dshow-vdev="Logitech HD Webcam C270 #1" :dshow-adev=none :dshow-size=640x480 :live-caching=300 :sout=#transcode{vcodec=theo,vb=800,acodec=vorb,ab=128,channels=2,samplerate=44100}:http{mux=ogg,dst=:8081/} :sout-keep

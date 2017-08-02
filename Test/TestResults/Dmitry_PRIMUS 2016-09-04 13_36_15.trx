@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4584cb76-a7ce-4ef5-b5c6-6a5f820cf7ad" name="Dmitry@PRIMUS 2016-09-04 13:36:15" runUser="PRIMUS\Dmitry" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="25e30747-ad08-424d-8740-af43fb277d22">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Dmitry_PRIMUS 2016-09-04 13_36_15" />
+  </TestSettings>
+  <Times creation="2016-09-04T13:36:15.6848427+05:00" queuing="2016-09-04T13:36:21.6095220+05:00" start="2016-09-04T13:36:21.7097873+05:00" finish="2016-09-04T13:36:24.2592280+05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CodedUITestMethod1" storage="e:\04 - morozov\my\appsoft\glovis\trunk\appstartertest\bin\x86\debug\appstartertest.dll" id="5bd3d724-9199-2a7e-f270-05c65fab9b20">
+      <Execution id="39d905dc-2b32-42d2-89e0-266458aae1d3" />
+      <TestMethod codeBase="E:/04 - morozov/my/appsoft/glovis/trunk/AppStarterTest/bin/x86/Debug/AppStarterTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AppStarterTest.CodedUITest1, AppStarterTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CodedUITestMethod1" />
+      <Extension>Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute, Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Extension>
+    </UnitTest>
+    <UnitTest name="CodedUITestMethod1" storage="e:\04 - morozov\my\appsoft\glovis\trunk\appstartertest\bin\x86\debug\appstartertest.dll" id="0d6762d5-fe2b-fc90-07cb-23f86e618d7f">
+      <Execution id="3c52da46-3fde-4ffe-a51f-d36953bae696" />
+      <TestMethod codeBase="E:/04 - morozov/my/appsoft/glovis/trunk/AppStarterTest/bin/x86/Debug/AppStarterTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AppStarterTest.CodedUITest2, AppStarterTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CodedUITestMethod1" />
+      <Extension>Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute, Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Extension>
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0d6762d5-fe2b-fc90-07cb-23f86e618d7f" executionId="3c52da46-3fde-4ffe-a51f-d36953bae696" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5bd3d724-9199-2a7e-f270-05c65fab9b20" executionId="39d905dc-2b32-42d2-89e0-266458aae1d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3c52da46-3fde-4ffe-a51f-d36953bae696" testId="0d6762d5-fe2b-fc90-07cb-23f86e618d7f" testName="CodedUITestMethod1" computerName="PRIMUS" duration="00:00:01.0531088" startTime="2016-09-04T13:36:21.9140418+05:00" endTime="2016-09-04T13:36:24.0743204+05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c52da46-3fde-4ffe-a51f-d36953bae696">
+      <Output>
+        <DebugTrace>W, 13916, 13, 2016/09/04, 13:36:24.058, 509469310654, QTAgent32.exe, IEDOM : StopSession of the plugin called before StartSession
+W, 13916, 13, 2016/09/04, 13:36:24.058, 509469313162, QTAgent32.exe, UIA : StopSession of the plugin called before StartSession
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="39d905dc-2b32-42d2-89e0-266458aae1d3" testId="5bd3d724-9199-2a7e-f270-05c65fab9b20" testName="CodedUITestMethod1" computerName="PRIMUS" duration="00:00:00.0129510" startTime="2016-09-04T13:36:24.0743204+05:00" endTime="2016-09-04T13:36:24.0899464+05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39d905dc-2b32-42d2-89e0-266458aae1d3">
+      <Output>
+        <DebugTrace>W, 13916, 22, 2016/09/04, 13:36:24.089, 509469380483, QTAgent32.exe, IEDOM : StopSession of the plugin called before StartSession
+W, 13916, 22, 2016/09/04, 13:36:24.089, 509469381796, QTAgent32.exe, UIA : StopSession of the plugin called before StartSession
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5DB8AD2F-612F-464A-8139-DAC4A4253015}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>web</RootNamespace>
+    <AssemblyName>OonzeProduct</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\VM\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <DeployIisAppPath>Oonze</DeployIisAppPath>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;_DEMO</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>false</ExcludeApp_Data>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <DeployIisAppPath>RationalCity</DeployIisAppPath>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>_DEMO</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\OAuthBase.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\BaseChartController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\ChartSetController.cs" />
+    <Compile Include="Controllers\ChartSetChartsController.cs" />
+    <Compile Include="Controllers\COSEMAttributeController.cs" />
+    <Compile Include="Controllers\COSEMClassController.cs" />
+    <Compile Include="Controllers\COSEMComplexTypeFieldController.cs" />
+    <Compile Include="Controllers\COSEMDataTypeController.cs" />
+    <Compile Include="Controllers\COSEMLogicalDeviceController.cs" />
+    <Compile Include="Controllers\COSEMMethodController.cs" />
+    <Compile Include="Controllers\COSEMObjectController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\Demo_HomeController.cs" />
+    <Compile Include="Controllers\DeviceAttributeController.cs" />
+    <Compile Include="Controllers\DeviceController.cs" />
+    <Compile Include="Controllers\BaseDeviceController.cs" />
+    <Compile Include="Controllers\DeviceController2.cs" />
+    <Compile Include="Controllers\DeviceLogicalDeviceController.cs" />
+    <Compile Include="Controllers\DeviceObjectController.cs" />
+    <Compile Include="Controllers\DeviceOwnerController.cs" />
+    <Compile Include="Controllers\DeviceTypeController.cs" />
+    <Compile Include="Controllers\DownloadsController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\HomeBaseController.cs" />
+    <Compile Include="Controllers\JSONReturn.cs" />
+    <Compile Include="Controllers\OBISGroupController.cs" />
+    <Compile Include="Controllers\OBISSetController.cs" />
+    <Compile Include="Controllers\Product_HomeController.cs" />
+    <Compile Include="Controllers\RenderSnapshotController.cs" />
+    <Compile Include="Controllers\RenderVideoController.cs" />
+    <Compile Include="Controllers\YouTubeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChartsDevicesEntities.cs" />
+    <Compile Include="Models\CommandModels.cs" />
+    <Compile Include="Models\Glovis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Glovis.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SnapshotSerieEntities.cs" />
+    <Compile Include="Models\StatEntities.cs" />
+    <Compile Include="Models\YouTube.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YouTube.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AddressEntities.cs" />
+    <Compile Include="Models\BaseChartEntities.cs" />
+    <Compile Include="Models\ChartEntities.cs" />
+    <Compile Include="Models\ChartSetChartsEntities.cs" />
+    <Compile Include="Models\ChartSetEntities.cs" />
+    <Compile Include="Models\COSEMAttributeDataTypeEntities.cs" />
+    <Compile Include="Models\COSEMAttributeEntities.cs" />
+    <Compile Include="Models\COSEMAttributeValueEntities.cs" />
+    <Compile Include="Models\COSEMClassEntities.cs" />
+    <Compile Include="Models\COSEMComplexTypeFieldEntities.cs" />
+    <Compile Include="Models\COSEMDataTypeEntities.cs" />
+    <Compile Include="Models\COSEMLogicalDeviceEntities.cs" />
+    <Compile Include="Models\COSEMMethodEntities.cs" />
+    <Compile Include="Models\COSEMObjectEntities.cs" />
+    <Compile Include="Models\DeviceAttributeEntities.cs" />
+    <Compile Include="Models\DeviceEntities.cs" />
+    <Compile Include="Models\DeviceLogicalDeviceEntities.cs" />
+    <Compile Include="Models\DeviceObjectEntities.cs" />
+    <Compile Include="Models\DeviceOwnerEntities.cs" />
+    <Compile Include="Models\DeviceTypeAndOwnerEntities.cs" />
+    <Compile Include="Models\DeviceTypeEntities.cs" />
+    <Compile Include="Models\GroupEntities.cs" />
+    <Compile Include="Models\OBISGroupEntities.cs" />
+    <Compile Include="Models\OBISSetEntities.cs" />
+    <Compile Include="Models\WebCredentials.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebCredentials.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\443445619.jpg" />
+    <Content Include="Content\images\bird_48_blue.png" />
+    <Content Include="Content\images\components\collaboration.png" />
+    <Content Include="Content\images\components\communications.png" />
+    <Content Include="Content\images\components\videocontroller.png" />
+    <Content Include="Content\images\features\event detection by the videocontroller.png" />
+    <Content Include="Content\images\features\event detection in the cloud.png" />
+    <Content Include="Content\images\features\monitoring of availability with notification.png" />
+    <Content Include="Content\images\templateBackground.jpg" />
+    <Content Include="Content\images\features\associating video with GPS location.png" />
+    <Content Include="Content\images\features\autocontrol with notification.png" />
+    <Content Include="Content\images\features\control with signature.png" />
+    <Content Include="Content\images\features\source is active.png" />
+    <Content Include="Content\images\features\source is passive.png" />
+    <Content Include="Content\images\features\transmission of configuration with digital signature.png" />
+    <Content Include="Content\images\features\transmission of data with digital signature.png" />
+    <Content Include="Content\images\features\transmission with end-to-end encryption.png" />
+    <Content Include="Content\images\use_cases\browse state of objects in realtime.png" />
+    <Content Include="Content\images\use_cases\event detection with notification.png" />
+    <Content Include="Content\images\use_cases\recording of timeline of long-continued processes.png" />
+    <Content Include="Content\images\use_cases\searching videos by time and location.png" />
+    <Content Include="Content\images\use_cases\temporary or movable surveillance.png" />
+    <Content Include="Content\Site_140414.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\flick\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\themes\flick\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\flick\jquery.ui.all.css" />
+    <Content Include="Content\themes\flick\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\flick\jquery.ui.base.css" />
+    <Content Include="Content\themes\flick\jquery.ui.button.css" />
+    <Content Include="Content\themes\flick\jquery.ui.core.css" />
+    <Content Include="Content\themes\flick\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\flick\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\flick\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\flick\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\flick\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\flick\jquery.ui.slider.css" />
+    <Content Include="Content\themes\flick\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\flick\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="Scripts\external\jquery.cookie.js" />
+    <Content Include="Scripts\external\jquery.metadata.js" />
+    <Content Include="Scripts\external\qunit.css" />
+    <Content Include="Scripts\external\qunit.js" />
+    <Content Include="Scripts\jquery-1.6.2.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\ui\UI.js" />
+    <Content Include="Scripts\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-kz.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Scripts\ui\jquery-ui-1.8.16.custom.js" />
+    <Content Include="Scripts\ui\jquery.effects.blind.js" />
+    <Content Include="Scripts\ui\jquery.effects.bounce.js" />
+    <Content Include="Scripts\ui\jquery.effects.clip.js" />
+    <Content Include="Scripts\ui\jquery.effects.core.js" />
+    <Content Include="Scripts\ui\jquery.effects.drop.js" />
+    <Content Include="Scripts\ui\jquery.effects.explode.js" />
+    <Content Include="Scripts\ui\jquery.effects.fade.js" />
+    <Content Include="Scripts\ui\jquery.effects.fold.js" />
+    <Content Include="Scripts\ui\jquery.effects.highlight.js" />
+    <Content Include="Scripts\ui\jquery.effects.pulsate.js" />
+    <Content Include="Scripts\ui\jquery.effects.scale.js" />
+    <Content Include="Scripts\ui\jquery.effects.shake.js" />
+    <Content Include="Scripts\ui\jquery.effects.slide.js" />
+    <Content Include="Scripts\ui\jquery.effects.transfer.js" />
+    <Content Include="Scripts\ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\ui\jquery.ui.button.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui\jquery.ui.position.js" />
+    <Content Include="Scripts\ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.blind.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.bounce.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.clip.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.core.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.drop.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.explode.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.fade.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.fold.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.highlight.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.pulsate.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.scale.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.shake.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.slide.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.effects.transfer.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Utils\AppStarterScript.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\AppStarterScript.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\AWSSDK.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\AWSSDK.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\InstanceStarter.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\InstanceStarter.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\InstanceStarter.vshost.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibDataUploader.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibDataUploader.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibExeCache.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibExeCache.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibHttpClient.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibHttpClient.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibInstance.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibInstance.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibProcessLog.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibProcessLog.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibRecordingConfig.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibRecordingConfig.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibStarterModel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibStarterModel.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibVideoFragmentManifest.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibVideoFragmentManifest.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibVLC.NET.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibVLC.NET.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibVLC.NET.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\VideoFragmentManifestMaker.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\VideoFragmentManifestMaker.pdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\COSEMObject\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\themes\.svn\prop-base\" />
+    <Folder Include="Content\themes\.svn\props\" />
+    <Folder Include="Content\themes\.svn\text-base\" />
+    <Folder Include="Content\themes\.svn\tmp\prop-base\" />
+    <Folder Include="Content\themes\.svn\tmp\props\" />
+    <Folder Include="Content\themes\.svn\tmp\text-base\" />
+    <Folder Include="Content\themes\base\.svn\prop-base\" />
+    <Folder Include="Content\themes\base\.svn\props\" />
+    <Folder Include="Content\themes\base\.svn\text-base\" />
+    <Folder Include="Content\themes\base\.svn\tmp\prop-base\" />
+    <Folder Include="Content\themes\base\.svn\tmp\props\" />
+    <Folder Include="Content\themes\base\.svn\tmp\text-base\" />
+    <Folder Include="Content\themes\base\images\.svn\prop-base\" />
+    <Folder Include="Content\themes\base\images\.svn\text-base\" />
+    <Folder Include="Content\themes\base\images\.svn\tmp\prop-base\" />
+    <Folder Include="Content\themes\base\images\.svn\tmp\props\" />
+    <Folder Include="Content\themes\base\images\.svn\tmp\text-base\" />
+    <Folder Include="Content\themes\flick\.svn\prop-base\" />
+    <Folder Include="Content\themes\flick\.svn\props\" />
+    <Folder Include="Content\themes\flick\.svn\text-base\" />
+    <Folder Include="Content\themes\flick\.svn\tmp\prop-base\" />
+    <Folder Include="Content\themes\flick\.svn\tmp\props\" />
+    <Folder Include="Content\themes\flick\.svn\tmp\text-base\" />
+    <Folder Include="Content\themes\flick\images\.svn\prop-base\" />
+    <Folder Include="Content\themes\flick\images\.svn\text-base\" />
+    <Folder Include="Content\themes\flick\images\.svn\tmp\prop-base\" />
+    <Folder Include="Content\themes\flick\images\.svn\tmp\props\" />
+    <Folder Include="Content\themes\flick\images\.svn\tmp\text-base\" />
+    <Folder Include="Scripts\ui\i18n\.svn\prop-base\" />
+    <Folder Include="Scripts\ui\i18n\.svn\props\" />
+    <Folder Include="Scripts\ui\i18n\.svn\text-base\" />
+    <Folder Include="Scripts\ui\i18n\.svn\tmp\prop-base\" />
+    <Folder Include="Scripts\ui\i18n\.svn\tmp\props\" />
+    <Folder Include="Scripts\ui\i18n\.svn\tmp\text-base\" />
+    <Folder Include="Scripts\ui\minified\.svn\prop-base\" />
+    <Folder Include="Scripts\ui\minified\.svn\props\" />
+    <Folder Include="Scripts\ui\minified\.svn\text-base\" />
+    <Folder Include="Scripts\ui\minified\.svn\tmp\prop-base\" />
+    <Folder Include="Scripts\ui\minified\.svn\tmp\props\" />
+    <Folder Include="Scripts\ui\minified\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Device\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Device\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Device\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Device\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BaseDevice\GroupDevices.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceOwner\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceOwner\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceOwner\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceOwner\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISGroup\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISGroup\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISGroup\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISGroup\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISGroup\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISSet\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISSet\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISSet\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISSet\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\OBISSet\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceType\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceType\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceType\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceType\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMAttribute\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMAttribute\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMAttribute\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMAttribute\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMAttribute\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMClass\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMClass\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMClass\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMClass\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMClass\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMComplexTypeField\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMComplexTypeField\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMComplexTypeField\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMComplexTypeField\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMComplexTypeField\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMMethod\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMMethod\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMMethod\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMMethod\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMMethod\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMDataType\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMDataType\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMDataType\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMDataType\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMDataType\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMLogicalDevice\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMLogicalDevice\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMLogicalDevice\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMLogicalDevice\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMLogicalDevice\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\Attributes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceLogicalDevice\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceObject\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceAttribute\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\COSEMObject\AssignIdentifier.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Group\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceAttribute\State.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\SelectBuilding.cshtml" />
+    <Content Include="Views\Address\SelectCity.cshtml" />
+    <Content Include="Views\Address\SelectCountry.cshtml" />
+    <Content Include="Views\Address\SelectState.cshtml" />
+    <Content Include="Views\Address\SelectStreet.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\SelectApartament.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\SelectZipCode.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\CreateApartament.cshtml" />
+    <Content Include="Views\Address\CreateBuilding.cshtml" />
+    <Content Include="Views\Address\CreateCity.cshtml" />
+    <Content Include="Views\Address\CreateCountry.cshtml" />
+    <Content Include="Views\Address\CreateState.cshtml" />
+    <Content Include="Views\Address\CreateStreet.cshtml" />
+    <Content Include="Views\Address\CreateZipCode.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DeviceOwner\SetOwner.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\data.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>data.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\datastat.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Content\themes\.svn\dir-props" />
+    <None Include="Content\themes\.svn\entries" />
+    <None Include="Content\themes\base\.svn\dir-props" />
+    <None Include="Content\themes\base\.svn\entries" />
+    <None Include="Content\themes\base\images\.svn\dir-props" />
+    <None Include="Content\themes\base\images\.svn\entries" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_flat_0_aaaaaa_40x100.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_flat_75_ffffff_40x100.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_glass_55_fbf9ee_1x400.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_glass_65_ffffff_1x400.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_glass_75_dadada_1x400.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_glass_75_e6e6e6_1x400.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_glass_95_fef1ec_1x400.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-bg_highlight-soft_75_cccccc_1x100.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-icons_222222_256x240.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-icons_2e83ff_256x240.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-icons_454545_256x240.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-icons_888888_256x240.png.svn-work" />
+    <None Include="Content\themes\base\images\.svn\props\ui-icons_cd0a0a_256x240.png.svn-work" />
+    <None Include="Content\themes\flick\.svn\dir-props" />
+    <None Include="Content\themes\flick\.svn\entries" />
+    <None Include="Content\themes\flick\images\.svn\dir-props" />
+    <None Include="Content\themes\flick\images\.svn\entries" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_flat_0_aaaaaa_40x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_flat_0_eeeeee_40x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_flat_55_ffffff_40x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_flat_75_ffffff_40x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_glass_65_ffffff_1x400.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_highlight-soft_100_f6f6f6_1x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_highlight-soft_25_0073ea_1x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-bg_highlight-soft_50_dddddd_1x100.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-icons_0073ea_256x240.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-icons_454545_256x240.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-icons_666666_256x240.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-icons_ff0084_256x240.png.svn-work" />
+    <None Include="Content\themes\flick\images\.svn\props\ui-icons_ffffff_256x240.png.svn-work" />
+    <EntityDeploy Include="Models\WebCredentials.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WebCredentials.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\YouTube.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>YouTube.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Models\Glovis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Glovis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\PublishProfiles\AWS.pubxml" />
+    <None Include="Properties\PublishProfiles\GloVis.Test.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\ui\i18n\.svn\dir-props" />
+    <None Include="Scripts\ui\i18n\.svn\entries" />
+    <None Include="Scripts\ui\minified\.svn\dir-props" />
+    <None Include="Scripts\ui\minified\.svn\entries" />
+    <Content Include="Views\Data\Upload.cshtml" />
+    <Content Include="Views\ChartSet\Index.cshtml" />
+    <Content Include="Views\ChartSet\Create.cshtml" />
+    <Content Include="Views\ChartSet\Details.cshtml" />
+    <Content Include="Views\ChartSet\Delete.cshtml" />
+    <Content Include="Views\ChartSet\Edit.cshtml" />
+    <Content Include="Views\ChartSet\View.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
+    <Content Include="Views\Chart\Delete.cshtml" />
+    <Content Include="Views\Shared\_LayoutFrame.cshtml" />
+    <Content Include="Views\Chart\XLSX.cshtml" />
+    <Content Include="Views\Chart\DataSet.cshtml" />
+    <Content Include="Views\Chart\SelectGroup.cshtml" />
+    <Content Include="Views\Chart\SelectOwner.cshtml" />
+    <Content Include="Views\Chart\SelectLocation.cshtml" />
+    <Content Include="Views\Chart\SelectElement.cshtml" />
+    <Content Include="Views\ChartSetCharts\Index.cshtml" />
+    <Content Include="Views\ChartSetCharts\Details.cshtml" />
+    <Content Include="Views\ChartSetCharts\Edit.cshtml" />
+    <Content Include="Views\ChartSetCharts\Delete.cshtml" />
+    <Content Include="UploadedFiles\dummy.zip" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="XMLTemplates\dummy.zip" />
+    <Content Include="Views\HomeBase\About.cshtml" />
+    <Content Include="Views\DeviceAttribute\TableCurrentState.cshtml" />
+    <Content Include="Views\RenderSnapshot\DivChart.cshtml" />
+    <Content Include="Views\ChartSet\DivChart.cshtml" />
+    <Content Include="Views\Group\AddCamerasForBuildings.cshtml" />
+    <Content Include="Views\BaseDevice\DeleteWithoutIP.cshtml" />
+    <Content Include="Views\BaseDevice\DetailsWithoutIP.cshtml" />
+    <Content Include="Views\Device\GroupDevicesWithoutIP.cshtml" />
+    <Content Include="Views\Group\DetailsWithoutSchedule.cshtml" />
+    <Content Include="Views\Group\EditWithoutSchedule.cshtml" />
+    <Content Include="Views\Chart\CreateCameraView.cshtml" />
+    <Content Include="Views\Chart\EditCameraView.cshtml" />
+    <Content Include="Views\Chart\DetailsCameraView.cshtml" />
+    <Content Include="Views\Home\DivChart.cshtml" />
+    <Content Include="Views\RenderSnapshot\ShowChart.cshtml" />
+    <Content Include="Views\RenderSnapshot\RenderSrc.cshtml" />
+    <Content Include="Views\Home\Product_Index.cshtml" />
+    <Content Include="Views\YouTube\Index.cshtml" />
+    <Content Include="Views\YouTube\Details.cshtml" />
+    <Content Include="Views\YouTube\Create.cshtml" />
+    <Content Include="Views\YouTube\Edit.cshtml" />
+    <Content Include="Views\YouTube\Delete.cshtml" />
+    <Content Include="Views\Device\DevicesWithoutIP.cshtml" />
+    <Content Include="Views\BaseDevice\DevicesWithCharts.cshtml" />
+    <Content Include="Views\Device\EditCamera.cshtml" />
+    <Content Include="Views\Device\DeleteCamera.cshtml" />
+    <Content Include="Views\Device\DetailsCamera.cshtml" />
+    <Content Include="Views\Device\CreateCamera.cshtml" />
+    <Content Include="Views\Device\CreateCameraInGroup.cshtml" />
+    <Content Include="Views\BaseDevice\DevicesWithChartsTable.cshtml" />
+    <Content Include="Views\RenderVideo\ShowChart.cshtml" />
+    <Content Include="Views\RenderVideo\ShowChartTable.cshtml" />
+    <Content Include="Views\Shared\_LayoutRepresentationVerTemplate.cshtml" />
+    <Content Include="Views\Device\CreateCameraWithTypeSelection.cshtml" />
+    <Content Include="Views\Shared\_LayoutRepresentation.cshtml" />
+    <Content Include="Views\BaseChart\InvalidChartType.cshtml" />
+    <Content Include="Views\Group\AddCamerasForIPs.cshtml" />
+    <Content Include="Utils\AppStarterScript.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\InstanceStarter.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\InstanceStarter.vshost.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibProcessLog.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\LibStarterModel.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Utils\VideoFragmentManifestMaker.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibExeCache\LibExeCache.csproj">
+      <Project>{6E575FBB-492B-4CBB-8777-2B57D3953D9B}</Project>
+      <Name>LibExeCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibProcessLog\LibProcessLog.csproj">
+      <Project>{1980529D-82DF-40F1-B20E-A8DD1704D446}</Project>
+      <Name>LibProcessLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibRecordingConfig\LibRecordingConfig.csproj">
+      <Project>{56857744-8574-4BFC-BAF5-0B7E7C25BB61}</Project>
+      <Name>LibRecordingConfig</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53367</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2375/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>cd "$(ProjectDir)"
+_update_version.bat
+exit /B 0</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,78 @@
+﻿@model web.Models.ViewChart
+
+@{
+    ViewBag.Title = "Edit view properties";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Screens", "Index") |
+    @Html.ActionLink("View", "ShowChart", new { id = Model.ID }) |
+    @Html.ActionLink("Source", "DataSet", new { id = Model.ID }) |
+    @Html.ActionLink("YouTube Attributes", "Index", "YouTube")
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>View properties</legend>
+
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.DataOwnerID)
+        @Html.HiddenFor(model => model.DataSetType)
+        @Html.HiddenFor(model => model.DataSetMaxCount)
+        @Html.HiddenFor(model => model.ChartType)
+
+        <table style="width:100%;">
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name, "Title")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name, null, new { style = "width:200px;" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Width, "View width (pixels)")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Width, null, new { style = "width:200px;" })
+                        @Html.ValidationMessageFor(model => model.Width)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Height, "View height (pixels)")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Height, null, new { style = "width:200px;" })
+                        @Html.ValidationMessageFor(model => model.Height)
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+}

@@ -1,0 +1,36 @@
+﻿@model web.Models.ViewAddress
+
+@{
+    ViewBag.Title = "Add state/region";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Add state/region</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Locations", "Index") |
+    @Html.ActionLink("Change", "Select")
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    @Html.Hidden("returnTo", (String)ViewBag.ReturnTo)
+    @Html.Hidden("countryID", (Int64)ViewBag.CountryID)
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State, "State/Region")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.State)
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+    </fieldset>
+<p>
+    <input type="submit" value="Add State" />
+</p>
+}

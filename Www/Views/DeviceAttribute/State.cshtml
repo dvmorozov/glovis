@@ -1,0 +1,48 @@
+﻿@model IEnumerable<web.Models.ViewCOSEMAttributeValue>
+@{
+    ViewBag.Title = "Attributes associated with " + "\"" + ViewBag.DeviceName + "\"";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<script language="javascript" type="text/javascript">
+    $(function () {
+        update();
+    });
+
+    function update() {
+        var u = String(document.URL);
+        $.ajax({
+            url: u.replace(/State/g, 'Update'),
+            method: "GET",
+            dataType: "text",
+            cache: false,
+            timeout: 10000,
+
+            success: function (responseXml) {
+                if (undefined == responseXml)
+                    return;
+                var c = new String(responseXml);
+                document.getElementById('table_current_state').innerHTML = c.replace(/Update/g, 'State');
+            },
+
+            error: function () { },
+            complete: function () {
+                setTimeout(function () {
+                    update();
+                }, 5000);
+            }
+        });
+    }
+
+    ;
+</script>
+           
+<h2>Attributes associated with physical device "@Html.Raw(ViewBag.DeviceName)" ("@Html.Raw(ViewBag.DeviceTypeName)")</h2>
+
+<p>
+    @Html.ActionLink("Cameras", (String)("GroupDevices/" + ViewBag.DeviceGroupID.ToString()), "Device")
+</p>
+
+<div id="table_current_state">
+    @Html.Partial("TableCurrentState", Model)
+</div>

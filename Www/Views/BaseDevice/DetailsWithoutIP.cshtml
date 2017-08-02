@@ -1,0 +1,56 @@
+﻿@using System.Globalization
+@model web.Models.ViewDevice
+
+@{
+    ViewBag.Title = "Details of camera";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Details of camera</h2>
+
+<p>
+    @Html.ActionLink( "Edit", "Edit", "Device", new { id=Model.ID }, null) |
+    @Html.ActionLink(Model.LocationAddressID == null ? "Locate" : "Location", Model.LocationAddressID == null ? "CreateCountry" : "Details/" + Model.LocationAddressID.ToString(), "Address", new { returnto = "Device/SetAddress/" + Model.ID.ToString(CultureInfo.InvariantCulture) }, null) |
+    @Html.ActionLink("Owner", "SetOwner", "DeviceOwner", new { id = Model.ID, returnto = "Device/SetOwner/" + Model.ID.ToString(CultureInfo.InvariantCulture) }, null) |
+    @Html.ActionLink("Camera", (String)("GroupDevices/" + ViewBag.CurrentGroupID.ToString()))
+</p>
+
+<fieldset>
+    <legend>Camera properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera name</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Name)
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Group</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.GroupName)
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DeviceTypeName, "Camera type")
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+            </td>
+            <td style="border: 0 hidden;">
+            </td>
+        </tr>
+    </table>
+</fieldset>

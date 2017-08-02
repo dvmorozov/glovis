@@ -1,0 +1,47 @@
+﻿@model LibStarterModel.Models.TableTask
+
+@{
+    ViewBag.Title = "Stop";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>Stop</h2>
+
+<h3>Are you sure you want to stop this task?</h3>
+
+<fieldset>
+	<legend>Task</legend>
+
+	<div class="display-label">TaskID</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.TaskID)
+	</div>
+
+	<div class="display-label">Config</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Config)
+	</div>
+
+	<div class="display-label">Template</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Template)
+	</div>
+
+	<div class="display-label">Process</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Process)
+	</div>
+
+	<div class="display-label">Running</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Running)
+	</div>
+</fieldset>
+
+@using (Html.BeginForm()) {
+	@Html.HiddenFor(model => model.ID)
+	<p>
+	    <input type="submit" value="Stop" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

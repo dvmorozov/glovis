@@ -1,0 +1,20 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+	Boolean error = false;
+    Layout = "~/Views/Shared/_LayoutFrame.cshtml";
+}
+
+@if ((ViewBag.ExceptionMessage != null) && (ViewBag.ExceptionMessage != "")) { error = true; }
+
+<h2>
+@if (error) 
+{ 
+	@Html.Raw("Sorry, an error occurred while processing your request: " + (String)ViewBag.ExceptionMessage);
+}
+else 
+{ 
+	@Html.Raw("Sorry, an error occurred while processing your request."); 
+}
+</h2>

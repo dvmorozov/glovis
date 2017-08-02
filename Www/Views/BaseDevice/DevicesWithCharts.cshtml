@@ -1,0 +1,56 @@
+﻿@model IEnumerable<web.Models.ViewDevicesWithCharts>
+		
+
+<script language="javascript" type="text/javascript">
+	$(function() {
+		update();
+	});
+
+	function update() {
+		var u = String(document.URL);
+		console.log('update');
+		$.ajax({
+		    url: u.replace(/DevicesWithCharts/g, 'Update'),
+			method: "GET",
+			dataType: "text",
+			cache: false,
+			timeout: 10000,
+
+			success: function (response) {
+				if (undefined == response)
+					return;
+				var c = new String(response);
+				document.getElementById('table_current_state').innerHTML = c.replace(/Update/g, 'State');
+			},
+
+			error: function () { },
+			complete: function () {
+				setTimeout(function () {
+					update();
+				}, 5000);
+			}
+		});
+	};
+</script>
+	   
+@* ReSharper disable ObjectCreationAsStatement *@
+@{
+    ViewBag.Title = "Your cameras";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+
+    new WebGrid(Model,
+                defaultSort: "DeviceName",
+                rowsPerPage: 20);
+}
+@* ReSharper restore ObjectCreationAsStatement *@
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<p>
+    @(Roles.IsUserInRole(User.Identity.Name, "Developer") ? Html.ActionLink("Add", "CreateCameraWithTypeSelection", "Device") : Html.ActionLink("Add", "CreateCamera", "Device")) |
+    @Html.ActionLink("Groups", "Index", "Group")
+</p>
+
+<div id="table_current_state">
+    @Html.Partial("DevicesWithChartsTable", Model)
+</div>

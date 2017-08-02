@@ -1,0 +1,50 @@
+﻿@model web.Models.ViewGroup
+
+@{
+    ViewBag.Title = "Details of group";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<p>
+    @if (Model != null)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+    }
+    @Html.ActionLink("Groups", "Index")
+</p>
+
+<fieldset>
+    <legend>Group properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Group</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if (Model != null)
+                    {
+                        @Html.DisplayFor(model => model.Name)
+                    }
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @if (Model != null)
+                    {
+                        @Html.DisplayFor(model => model.DeviceType)
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>

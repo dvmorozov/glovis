@@ -1,0 +1,15 @@
+
+DROP TRIGGER TriggerCity
+GO
+
+CREATE TRIGGER TriggerCity
+	ON TableCity
+	FOR DELETE
+AS  
+	DECLARE @DeletedCount INT
+	SET @DeletedCount = (SELECT COUNT(*) FROM DELETED)
+	IF (@DeletedCount > 0) BEGIN
+		UPDATE TableAddress
+		SET CityID = NULL
+		WHERE CityID IN (SELECT ID FROM DELETED)
+	END

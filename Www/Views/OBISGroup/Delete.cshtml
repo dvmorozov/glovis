@@ -1,0 +1,96 @@
+﻿@model web.Models.ViewOBISGroup
+
+@{
+    ViewBag.Title = "Delete OBIS group value";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>Delete OBIS group value</h2>
+
+<p>
+    @Html.ActionLink("OBIS Groups", "Index")
+</p>
+
+<h3>Are you sure you want to delete this OBIS group value?</h3>
+<fieldset>
+    <legend>OBIS group value properties</legend>
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Type</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Type)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Value</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Value)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Desciption</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Standard</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Standard)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Reserved</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Reserved)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Unusable</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Unusable)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Context</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Context)
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}

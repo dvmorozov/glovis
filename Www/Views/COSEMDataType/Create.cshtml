@@ -1,0 +1,97 @@
+﻿@model web.Models.ViewCOSEMDataType
+
+@{
+    ViewBag.Title = "Add a new COSEM data type";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+}
+
+<h2>@Html.Raw(ViewBag.Title)</h2>
+
+<p>
+    @Html.ActionLink("Types", "Index")
+</p>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>COSEM type properties</legend>
+
+        <table style="width:100%;">
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Name, "Type name")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AncestorTypeID, "Ancestor type name (may be empty)")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.DropDownList("AncestorTypeID", String.Empty)
+                        @Html.ValidationMessageFor(model => model.AncestorTypeID)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ItemBitSize, "Item bit size")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ItemBitSize)
+                        @Html.ValidationMessageFor(model => model.ItemBitSize)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ItemCount, "Item count (type cardinality)")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ItemCount)
+                        @Html.ValidationMessageFor(model => model.ItemCount)
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border: 0 hidden;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Standard, "Standard")
+                    </div>
+                </td>
+                <td style="border: 0 hidden;">
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Standard)
+                        @Html.ValidationMessageFor(model => model.Standard)
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <p>
+        <input type="submit" value="Add" />
+    </p>
+}

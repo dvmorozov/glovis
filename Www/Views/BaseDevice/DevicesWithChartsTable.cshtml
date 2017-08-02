@@ -1,0 +1,93 @@
+﻿@model IEnumerable<web.Models.ViewDevicesWithCharts>
+
+@{
+	ViewBag.Title = "Your cameras";
+	var grid = new WebGrid(source: Model,
+						   defaultSort: "DeviceName",
+						   rowsPerPage: 20);
+	Layout = ""; /*must be set empty explicitly*/
+}
+
+<div id="grid">
+	@if (Roles.IsUserInRole(User.Identity.Name, "Developer"))
+	{
+		@grid.GetHtml("grid", "head",
+					  alternatingRowStyle: "alt",
+					  columns: grid.Columns(
+						  grid.Column("DeviceName", "Name", style: "product"),
+						  grid.Column("GroupName", "Group", style: "product"),
+						  @*grid.Column("ID", "Type", @<text>@Html.Raw("")</text>, "product"),*@
+						  grid.Column("ID", "URL", @<text>@Html.Raw(item.URL + ":" + item.Port)</text>, "product"),
+						  grid.Column("ID", "Recording", @<text>
+		@if (item.OperationInProgress)
+		{
+			<span class="ui-icon ui-state-highlight ui-icon-gear" title="Last operation is still
+			in progress"></span>
+		}
+		else
+		{
+			if (item.FinishedSuccessfully)
+			{
+				if (item.AcquisitionDisabled){<span class="ui-icon ui-state-highlight ui-icon-closethick" title="No"></span>}
+				else {<span class="ui-icon ui-state-highlight ui-icon-check" title="Yes"></span>}
+			}
+			else {<span class="ui-icon ui-state-highlight ui-icon-notice" title="Last operation failed"></span>}
+		}
+		</text>, style: "product", canSort: false),
+			//	Both buttons must be enabled always.
+			//	evernote:///view/14501366/s132/a5ff5fbd-8847-4dd9-b5a9-7c6d6fbbdd3d/a5ff5fbd-8847-4dd9-b5a9-7c6d6fbbdd3d/
+			grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("TurnRecordingOn", "Device", new { elementId = item.ElementID, deviceId = item.DeviceID }) + "\"><input type=\"submit\" value=\"On\"/></form>")</text>, "product", false),
+			grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("TurnRecordingOff", "Device", new { elementId = item.ElementID, deviceId = item.DeviceID }) + "\"><input type=\"submit\" value=\"Off\"/></form>")</text>, "product", false),
+			grid.Column("ID", "", @<text>@Html.ActionLink("Edit", "EditCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false),
+			grid.Column("ID", "", @<text>@Html.ActionLink("Details", "DetailsCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false),
+			grid.Column("ID", "", @<text>@Html.ActionLink("Delete", "DeleteCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false),
+			grid.Column("ID", "", @<text>@Html.ActionLink("XML Template", "XMLTemplate", "Device", new { id = item.DeviceID }, null)</text>, "product", false)
+			),
+			numericLinksCount: 20
+			)
+	}
+	else
+	{
+		@grid.GetHtml("grid", "head",
+			alternatingRowStyle: "alt",
+			columns: grid.Columns(
+			grid.Column("DeviceName", "Name", style: "product"),
+			grid.Column("GroupName", "Group", style: "product"),
+			grid.Column("ID", "URL", @<text>@Html.Raw(item.URL + ":" + item.Port)</text>, "product"),
+			grid.Column("ID", "Recording", @<text>
+
+			@if (item.OperationInProgress)
+			{
+				<span class="ui-icon ui-state-highlight ui-icon-gear" title="Last operation is still in progress"></span>
+			}
+			else
+			{
+				if (item.FinishedSuccessfully)
+				{
+					if (item.AcquisitionDisabled)
+					{
+						<span class="ui-icon ui-state-highlight ui-icon-closethick" title="No"></span>
+					}
+					else
+					{
+						<span class="ui-icon ui-state-highlight ui-icon-check" title="Yes"></span>
+					}
+				}
+				else
+				{
+					<span class="ui-icon ui-state-highlight ui-icon-notice" title="Last operation failed"></span>
+				}
+			}
+				</text>, style: "product", canSort: false),
+				//	Both buttons must be enabled always.
+				//	evernote:///view/14501366/s132/a5ff5fbd-8847-4dd9-b5a9-7c6d6fbbdd3d/a5ff5fbd-8847-4dd9-b5a9-7c6d6fbbdd3d/
+				grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("TurnRecordingOn", "Device", new { elementId = item.ElementID, deviceId = item.DeviceID }) + "\"><input type=\"submit\" value=\"On\"/></form>")</text>, "product", false),
+				grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("TurnRecordingOff", "Device", new { elementId = item.ElementID, deviceId = item.DeviceID }) + "\"><input type=\"submit\" value=\"Off\"/></form>")</text>, "product", false),
+				grid.Column("ID", "", @<text>@Html.ActionLink("Edit", "EditCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false),
+				grid.Column("ID", "", @<text>@Html.ActionLink("Details", "DetailsCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false),
+				grid.Column("ID", "", @<text>@Html.ActionLink("Delete", "DeleteCamera", "Device", new { id = item.DeviceID }, null)</text>, "product", false)
+			),
+				numericLinksCount: 20
+			)
+	}
+</div>

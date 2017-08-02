@@ -1,0 +1,36 @@
+﻿@model IEnumerable<web.Models.ViewCOSEMAttributeValue>
+@{
+    var grid = new WebGrid(Model,
+                           defaultSort: "COSEMLogicalDeviceID",
+                           rowsPerPage: 20);
+}
+
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "grid",
+        headerStyle: "head",
+        alternatingRowStyle: "alt",
+        columns: grid.Columns(
+            grid.Column("COSEMLogicalDeviceID", "Logical Device", style: "product"),
+            grid.Column("COSEMObjectID", "Object", style: "product"),
+            grid.Column("Name", "Name", style: "product"),
+            grid.Column("Identifier", "Identifier", style: "product"),
+            grid.Column("COSEMDataTypeName", "COSEM Data Type", style: "product"),
+            grid.Column("Value", "Value", style: "product"),
+            grid.Column("Units", "Units", style: "product"),
+            grid.Column("QualityBad", "Quality", @<text>            
+                @if ((null == item.QualityBad) || ((bool)item.QualityBad))
+                {
+                    <span class="ui-icon ui-state-highlight ui-icon-closethick" title="Uncertain"></span>
+                }
+                else
+                { 
+                    <span class="ui-icon ui-state-highlight ui-icon-check" title="Good"></span>
+                }
+                </text>, style: "product"),
+            grid.Column("MeasurementTime", "Capture Time", style: "product"),
+            grid.Column("AcquisitionTime", "Recording Time", style: "product")
+        ),
+        numericLinksCount: 20
+    )
+</div>

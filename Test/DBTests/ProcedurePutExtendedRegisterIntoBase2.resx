@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DBTestScript_PutExtendedRegisterIntoBase2_TestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+/*
+Add SQL statements here to exercise the database object 
+that you want to test.
+
+To test a stored procedure, invoke it here by adding 
+an EXEC statement that has appropriate parameters.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+
+/*Uses TableSession, TableDataPoint, TableCurrentState, TableUnitTestResult, TableCurrentStateConfig */
+
+BEGIN TRANSACTION
+-- Points must be deleted before.
+DELETE FROM TableDataPoint
+DELETE FROM TableSession
+DELETE FROM TableCurrentStateConfig
+DELETE FROM TableAppLog
+DELETE FROM TableCurrentState
+DELETE FROM TableAppConfig
+-- Must be the last deletion.
+DELETE FROM TableUnitTestResult
+
+-- Inserts device attributes to collect list.
+DECLARE @DeviceID BIGINT -- Physical device id
+DECLARE @DataOwnerID UNIQUEIDENTIFIER
+
+SELECT @DataOwnerID = UserID FROM aspnet_Users
+WHERE UserName = 'dmorozov'
+SELECT @DeviceID = MAX(ID) FROM TableDevice WHERE DataOwnerID = @DataOwnerID AND TypeID = 214
+
+INSERT INTO TableUnitTestResult (DataOwnerID) VALUES (@DataOwnerID)
+INSERT INTO TableAppConfig (TestMode, MaxAppLog) VALUES (1, 10)
+
+EXEC AddAllDeviceAttrToCollectList @DeviceID, @DataOwnerID
+
+DECLARE @ValueIdentifier NVARCHAR(MAX)
+-- Must be existing value id.
+SET @ValueIdentifier = (SELECT TOP(1) ValueIdentifier FROM TableCurrentState)
+
+DECLARE @Units NCHAR(36)
+SET @Units = 'TEST'
+
+DECLARE @IntValue INT
+SET @IntValue = 1
+
+DECLARE @StringValue VARCHAR(MAX)
+SET @StringValue = 'TEST'
+
+DECLARE @IntStatus INT
+SET @IntStatus = 1
+
+DECLARE @Year INT
+SET @Year = 2013
+
+DECLARE @Month INT
+SET @Month = 11
+
+DECLARE @DayOfMonth INT
+SET @DayOfMonth = 13
+
+DECLARE @DayOfWeek NVARCHAR(MAX)
+SET @DayOfWeek = 'WED'
+
+DECLARE @Hour INT
+SET @Hour = 14
+
+DECLARE @Minute INT
+SET @Minute = 59
+
+DECLARE @Second INT
+SET @Second = 25
+
+DECLARE @HundredthsOfSecond INT
+SET @HundredthsOfSecond = 99
+
+-- Prepares the test result row.
+INSERT INTO TableUnitTestResult (DataOwnerID)
+VALUES (@DataOwnerID)
+
+-- By default 10 points are allowed to be stored.
+DECLARE @SessionCount INT 
+SET @SessionCount = 12
+WHILE @SessionCount &gt; 0
+BEGIN
+	EXEC PutExtendedRegisterIntoBase2 @ValueIdentifier, @Units, @IntValue, @StringValue,
+		@IntStatus, @Year, @Month, @DayOfMonth, @DayOfWeek, @Hour, @Minute, @Second, @HundredthsOfSecond
+	SET @SessionCount = @SessionCount - 1
+END
+
+SET @SessionCount = (SELECT COUNT(*) FROM TableSession)
+
+DECLARE @PointCount INT
+SET @PointCount = (SELECT COUNT(*) FROM TableDataPoint)
+
+DECLARE @DeletedCount INT
+SET @DeletedCount = (SELECT TOP(1) DeletedPointsCount FROM TableUnitTestResult WHERE DataOwnerID = @DataOwnerID)
+
+-- Counts messages in the application log.
+DECLARE @MessageCount INT
+SET @MessageCount = (SELECT COUNT(*) FROM TableAppLog)
+
+IF @SessionCount = 10 AND @PointCount = 10 AND @DeletedCount = 2 AND @MessageCount = 2
+BEGIN
+	SELECT 1
+END
+ELSE
+BEGIN
+	SELECT 0
+END
+
+ROLLBACK
+</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

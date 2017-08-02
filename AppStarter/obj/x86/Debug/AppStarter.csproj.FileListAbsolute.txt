@@ -1,0 +1,58 @@
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\AppStarter.dll.config
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\AppStarter.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\AppStarter.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\EntityFramework.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibExeCache.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibHttpClient.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibProcessLog.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibRecordingConfig.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibStarterModel.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Helpers.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Mvc.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Razor.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.Razor.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\Microsoft.Web.Infrastructure.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.Deployment.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibExeCache.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibHttpClient.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibProcessLog.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibRecordingConfig.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\LibStarterModel.pdb
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\EntityFramework.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Mvc.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Helpers.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.Razor.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.Razor.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\Microsoft.Web.Infrastructure.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\System.Web.WebPages.Deployment.xml
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.Mvc.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.WebPages.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.Helpers.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.Razor.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.WebPages.Razor.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.WebPages.Deployment.resources.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.csprojResolveAssemblyReference.cache
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.dll
+E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\EntityFramework.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibExeCache.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibHttpClient.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibRecordingConfig.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibExeCache.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibHttpClient.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibRecordingConfig.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\EntityFramework.xml
+C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.csprojResolveAssemblyReference.cache
+C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.dll
+C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.pdb

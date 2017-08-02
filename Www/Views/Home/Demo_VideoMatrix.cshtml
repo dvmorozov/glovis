@@ -1,0 +1,53 @@
+﻿@model ViewChartSet
+
+@{
+	Layout = "";
+}
+
+@using System.Globalization
+@using web.Models;
+
+<fieldset>
+	<legend>@Model.Name</legend>
+	<table>
+		@{
+			var l = (List<ViewChartSetsChartsExt>)ViewBag.ChartSetsCharts;
+
+			for (var row = 0; row < Model.Rows; row++)
+			{ 
+				<tr>
+					@for (var col = 0; col < Model.Cols; col++)
+					{
+						//  search of appropriate chart
+						var found = false;
+						for (var i = 0; i < l.Count(); i++)
+						{
+							var item = l[i];
+							if (item.ColIndex != col || item.RowIndex != row)
+							{
+								continue;
+							}
+
+							<td style="@Html.Raw("border: 0 hidden; padding:" + Model.Margin.ToString(CultureInfo.InvariantCulture) + "px;")">
+							@{
+								var fullUrl = "http://" + (item.Port.IsEmpty() ? item.URL : item.URL + ':' + item.Port);
+								<video id="@Html.Raw("div_chart_" + item.ChartID.ToString(CultureInfo.InvariantCulture))" preload="none" @Html.Raw("width=\"" + Model.CellWidth.ToString(CultureInfo.InvariantCulture) + "\" height=\"" + Model.CellHeight.ToString(CultureInfo.InvariantCulture) + "\"") controls autoplay><source src="@Html.Raw(fullUrl)" type="video/ogg">Your browser does not support the video tag.</video>
+							}
+							</td>
+							found = true;
+							break;
+						}
+
+						if (found)
+						{
+							continue;
+						}
+						<td style = "@Html.Raw("border: 0 hidden; padding:" + Model.Margin.ToString(CultureInfo.InvariantCulture) + "px;")">
+						</td>
+					}
+				</tr>
+			}
+		}
+	</table>
+</fieldset>
+

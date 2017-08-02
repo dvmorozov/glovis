@@ -1,0 +1,106 @@
+﻿@model LibHttpClient.CreateTaskModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Task</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaskId)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.TaskId)
+		    @Html.ValidationMessageFor(model => model.TaskId)
+	    </div>
+		
+	    <div class="editor-label">
+		    @Html.LabelFor(model => model.PortalDomain)
+	    </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PortalDomain)
+            @Html.ValidationMessageFor(model => model.PortalDomain)
+        </div>
+
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.PortalPort)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.PortalPort)
+		    @Html.ValidationMessageFor(model => model.PortalPort)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.PortalUserName)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.PortalUserName)
+		    @Html.ValidationMessageFor(model => model.PortalUserName)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.PortalPassword)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.PortalPassword)
+		    @Html.ValidationMessageFor(model => model.PortalPassword)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.SourceDomain)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.SourceDomain)
+		    @Html.ValidationMessageFor(model => model.SourceDomain)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.SourcePort)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.SourcePort)
+		    @Html.ValidationMessageFor(model => model.SourcePort)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.VideoProxyPort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VideoProxyPort)
+            @Html.ValidationMessageFor(model => model.VideoProxyPort)
+        </div>
+
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.Template)
+        </div>
+	    <div class="editor-field">
+		    @Html.EditorFor(model => model.Template)
+		    @Html.ValidationMessageFor(model => model.Template)
+	    </div>
+		
+	    <div class="editor-label">
+            @Html.LabelFor(model => model.FragmentLength)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FragmentLength)
+            @Html.ValidationMessageFor(model => model.FragmentLength)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,130 @@
+﻿@model ViewChart
+
+@using System.Globalization
+@using web.Models;
+@{
+    ViewBag.Title = "Source";
+    Layout = "~/Views/Shared/_LayoutRepresentation.cshtml";
+
+    var elementList = (List<ViewElementFiltered>)ViewBag.ElementList;
+    var grid = new WebGrid(elementList,
+                           defaultSort: "Name",
+                           rowsPerPage: 20);
+}
+
+<h2>@Html.Raw("Source for view" + " \"" + Model.Name.TrimEnd() + "\"")</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<p>
+    @Html.ActionLink("Screens", "Index") |
+    @Html.ActionLink("View", "ShowChart", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+</p>
+
+@Html.ValidationSummary(true)
+<fieldset>
+    <legend>Select criteria</legend>
+
+    @Html.HiddenFor(model => model.ID)
+
+    <table style="width:100%;">
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Group</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">@Html.Raw(ViewBag.Group == null ? "<i>Any</i>" : (String)ViewBag.Group)</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @Html.ActionLink("Select", "SelectGroup", new { id = Model.ID, ViewBag.groupID, ViewBag.group, ViewBag.ownerID, ViewBag.owner, ViewBag.locationID, ViewBag.location, ViewBag.element })
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @using (Html.BeginForm("DataSet", "Chart", new { id = Model.ID, ViewBag.ownerID, ViewBag.owner, ViewBag.locationID, ViewBag.location, ViewBag.element }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Reset" />
+                    }
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera Owner</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">@Html.Raw(ViewBag.Owner == null ? "<i>Any</i>" : (String)ViewBag.Owner)</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @Html.ActionLink("Select", "SelectOwner", new { id = Model.ID, ViewBag.groupID, ViewBag.group, ViewBag.ownerID, ViewBag.owner, ViewBag.locationID, ViewBag.location, ViewBag.element })
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @using (Html.BeginForm("DataSet", "Chart", new { id = Model.ID, ViewBag.groupID, ViewBag.group, ViewBag.locationID, ViewBag.location, ViewBag.element }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Reset" />
+                    }
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="border: 0 hidden;">
+                <div class="display-label">Camera Location</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">@Html.Raw(ViewBag.Location == null ? "<i>Any</i>" : (String)ViewBag.Location)</div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @Html.ActionLink("Select", "SelectLocation", new { id = Model.ID, ViewBag.groupID, ViewBag.group, ViewBag.ownerID, ViewBag.owner, ViewBag.locationID, ViewBag.location, ViewBag.element })
+                </div>
+            </td>
+            <td style="border: 0 hidden;">
+                <div class="display-label">
+                    @using (Html.BeginForm("DataSet", "Chart", new { id = Model.ID, ViewBag.groupID, ViewBag.group, ViewBag.element }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Reset" />
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Top 100 items (actually @(elementList != null ? Html.Raw(elementList.Count().ToString(CultureInfo.InvariantCulture)) : Html.Raw("0")))</legend>
+    <br />
+    <div id="grid">
+        @grid.GetHtml(
+            tableStyle: "grid",
+            headerStyle: "head",
+            alternatingRowStyle: "alt",
+            columns: grid.Columns(
+                grid.Column("GroupName", "Group", style: "product"),
+                grid.Column("DeviceName", "Camera", style: "product"),
+                grid.Column("LogicalDevice", "Logical Device", style: "product"),
+                grid.Column("LogicalObject", "Logical Object", style: "product"),
+                grid.Column("Attribute", "Attribute", style: "product"),
+                grid.Column("Identifier", "Identifier", style: "product"),
+                grid.Column("ChartID", "In View", @<text>            
+                @if ((null == item.ChartID) || (Model.ID != item.ChartID))
+                {
+                    <span class="ui-icon ui-state-highlight ui-icon-closethick" title="Uncertain"></span>
+                }
+                else
+                { 
+                    <span class="ui-icon ui-state-highlight ui-icon-check" title="Good"></span>
+                }
+                </text>, style: "product"),
+                grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("AddElement", "Chart", new { id = Model.ID, elementID = item.ID, returnUrl = Request.Url }) + "\"><input type=\"submit\" value=\"Add\" /></form>")</text>, style: "product", canSort: false),
+                grid.Column("ID", "", @<text>@Html.Raw("<form method=\"post\" action=\"" + Url.Action("DeleteElement", "Chart", new { id = Model.ID, elementID = item.ID, returnUrl = Request.Url }) + "\"><input type=\"submit\" value=\"Delete\" /></form>")</text>, style: "product", canSort: false)
+            ),
+            numericLinksCount: 20)
+    </div>
+</fieldset>
