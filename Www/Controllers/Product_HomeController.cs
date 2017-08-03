@@ -1,9 +1,7 @@
 ﻿
-#if !_DEMO
 using System.Web.Mvc;
 using System;
 using System.Web.Security;
-#endif
 
 namespace web.Controllers
 {
@@ -12,13 +10,9 @@ namespace web.Controllers
 
         public HomeController()
         {
-#if _DEMO
-            ReadConfiguration();
-#endif
         }
 
         //  evernote:///view/14501366/s132/f3b75741-2872-43c8-8eae-4733e79625f9/f3b75741-2872-43c8-8eae-4733e79625f9/
-#if !_DEMO
         public ActionResult Index()
         {
             try
@@ -39,6 +33,5 @@ namespace web.Controllers
                 return View("Error");
             }
         }
-#endif
     }
 }

@@ -27,11 +27,7 @@ namespace web.Controllers
             ViewBag.AppName2 = _appNames.AppName2;
             //  https://www.evernote.com/shard/s132/nl/14501366/84f3d8eb-d5ab-4b30-86fa-99353be08492
             //  For subsequent modification of the main menu.
-#if _DEMO
-            ViewBag.Demo = true;
-#else
             ViewBag.Demo = false;
-#endif
             ViewBag.Title = "Welcome " + (String)ViewBag.AppName;
         }
 

@@ -16,11 +16,9 @@ namespace web.Models
 
         public AppNames()
         {
-#if !_DEMO
             var appSettings = (NameValueCollection)ConfigurationManager.GetSection("appSettings");
             _an1 = appSettings["AppName1"];
             _an2 = appSettings["AppName2"];
-#endif
         }
 
         public string AppName {

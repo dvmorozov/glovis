@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstanceStarter", "InstanceStarter\InstanceStarter\InstanceStarter.csproj", "{933175CA-9ABC-4E18-84C0-541B3A948A59}"
 EndProject
@@ -28,12 +28,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibVLC.NET", "VideoFragmentProcessing\VLCEventDetector\LibVLC.NET\LibVLC.NET.csproj", "{BB06DFF7-4F41-4B9D-A3C3-3B6D2B8702B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStarterScript", "AppStarterScript\AppStarterScript.csproj", "{458251F7-99CE-486E-A3DF-852F1E4040FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloVis.Site", "Www\GloVis.Site.csproj", "{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6B1FA75C-D706-4AC3-8682-A31BC65E5FB8} = {6B1FA75C-D706-4AC3-8682-A31BC65E5FB8}
-		{458251F7-99CE-486E-A3DF-852F1E4040FA} = {458251F7-99CE-486E-A3DF-852F1E4040FA}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloVis.VM", "Www\GloVis.VM.csproj", "{5DB8AD2F-612F-464A-8139-DAC4A4253015}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -275,22 +269,6 @@ Global
 		{458251F7-99CE-486E-A3DF-852F1E4040FA}.Release|x64.Build.0 = Release|x64
 		{458251F7-99CE-486E-A3DF-852F1E4040FA}.Release|x86.ActiveCfg = Release|x86
 		{458251F7-99CE-486E-A3DF-852F1E4040FA}.Release|x86.Build.0 = Release|x86
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|x64.ActiveCfg = Debug|x64
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|x64.Build.0 = Debug|x64
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Debug|x86.Build.0 = Debug|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|x64.ActiveCfg = Release|x64
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|x64.Build.0 = Release|x64
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|x86.ActiveCfg = Release|Any CPU
-		{7EC4152B-1126-4F84-8FBA-AC96ED2130E1}.Release|x86.Build.0 = Release|Any CPU
 		{5DB8AD2F-612F-464A-8139-DAC4A4253015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5DB8AD2F-612F-464A-8139-DAC4A4253015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DB8AD2F-612F-464A-8139-DAC4A4253015}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
