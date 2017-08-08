@@ -764,6 +764,7 @@ namespace SeasideResearch.LibCurlNet
         /// action would be to return the page normally, ignoring that code. 
         /// </summary>
         CURLOPT_FAILONERROR             = 45,
+#pragma warning disable CS0419 // Ambiguous reference in cref attribute
         /// <summary>
         /// Pass a <c>bool</c>. If it is <c>true</c>, libcurl will attempt to get
         /// the modification date of the remote document in this operation. This
@@ -773,6 +774,7 @@ namespace SeasideResearch.LibCurlNet
         /// transfer to extract the received time (if any).
         /// </summary>
         CURLOPT_FILETIME                = 69,
+#pragma warning restore CS0419 // Ambiguous reference in cref attribute
         /// <summary>
         /// A <c>true</c> parameter tells the library to follow any Location:
         /// header that the server sends as part of an HTTP header.
@@ -1256,6 +1258,7 @@ namespace SeasideResearch.LibCurlNet
         /// again by setting a <c>null</c> to this option.
         /// </summary>
         CURLOPT_PREQUOTE                = 10093,
+#pragma warning disable CS0419 // Ambiguous reference in cref attribute
         /// <summary>
         /// Pass an <c>object</c> as parameter, referencing data that should be
         /// associated with this <see cref="Easy"/> object. The object can
@@ -1264,6 +1267,7 @@ namespace SeasideResearch.LibCurlNet
         /// nothing with this data. (Added in 7.10.3) 
         /// </summary>
         CURLOPT_PRIVATE                 = 10103,
+#pragma warning restore CS0419 // Ambiguous reference in cref attribute
         /// <summary>
         /// Pass an <c>object</c> reference that will be untouched by libcurl
         /// and passed as the first argument in the progress delegate set with
@@ -2055,6 +2059,7 @@ namespace SeasideResearch.LibCurlNet
         CURL_FORMADD_LAST             = 8
     };
 
+#pragma warning disable CS0419 // Ambiguous reference in cref attribute
     /// <summary>
     /// This enumeration is used to extract information associated with an
     /// <see cref="Easy"/> transfer. Specifically, a member of this
@@ -2064,6 +2069,7 @@ namespace SeasideResearch.LibCurlNet
     /// <c>double</c>, a <c>string</c>, a <c>DateTime</c> or an <c>object</c>.
     /// </summary>
     public enum CURLINFO
+#pragma warning restore CS0419 // Ambiguous reference in cref attribute
     {
         /// <summary>
         /// The second argument receives the elapsed time, as a <c>double</c>,

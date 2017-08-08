@@ -55,6 +55,8 @@ void *Mem_calloc(long count, long nbytes,
 	return ptr;
 }
 void Mem_free(void *ptr, const char *file, int line) {
+	UNREFERENCED_PARAMETER(file);
+	UNREFERENCED_PARAMETER(line);
 	if (ptr)
 		free(ptr);
 }

@@ -14,7 +14,7 @@ namespace LibAppStarter
         private readonly string _appStarterUrl;
         private readonly string _userName;
         private readonly string _password;
-        private WebClient _client;
+        //private WebClient _client;
         private HttpWebRequest _request;
         private CookieContainer _cookie;
 

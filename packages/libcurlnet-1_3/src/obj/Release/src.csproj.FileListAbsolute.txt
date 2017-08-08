@@ -1,0 +1,6 @@
+C:\Others\glovis\packages\libcurlnet-1_3\src\obj\Release\LibCurlNet.dll
+C:\Others\glovis\packages\libcurlnet-1_3\src\LibCurlNet.xml
+C:\Others\glovis\packages\libcurlnet-1_3\src\LibCurlNet.dll
+C:\Others\glovis\packages\libcurlnet-1_3\src\bin\Release\LibCurlNet.dll
+C:\Others\glovis\packages\libcurlnet-1_3\src\bin\Release\LibCurlNet.xml
+C:\Others\glovis\packages\libcurlnet-1_3\src\obj\Release\src.csprojResolveAssemblyReference.cache

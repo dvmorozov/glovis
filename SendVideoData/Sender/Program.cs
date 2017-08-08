@@ -252,9 +252,9 @@ namespace SendData
         private static void Main(string[] args)
         {
             var cycleCount = 1;
-#pragma warning disable 168
+#pragma warning disable CS0219
             const long jpegQuality = 30;    // 1-100 or 0 for default
-#pragma warning restore 168
+#pragma warning restore CS0219
             const int size = 64;
             var snapshotSeqNumber = 0;
             var serieId = Guid.NewGuid();

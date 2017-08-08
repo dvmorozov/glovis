@@ -20,6 +20,8 @@
  * $Id: assert.c,v 1.1 2005/02/17 22:47:24 jeffreyphillips Exp $
  **************************************************************************/
 
+#pragma warning( disable : 4206)
+
 #ifndef NDEBUG
 #include "assert.h"
 const Except_T Assert_Failed = { "Assertion failed" };

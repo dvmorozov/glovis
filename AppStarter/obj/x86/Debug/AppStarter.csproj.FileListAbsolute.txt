@@ -36,4 +36,23 @@ E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\bin\x86\Debug\ru\System.Web.W
 E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.csprojResolveAssemblyReference.cache
 E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.dll
 E:\04 - morozov\my\appsoft\glovis\trunk\AppStarter\obj\x86\Debug\AppStarter.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\AppStarter.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\EntityFramework.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibExeCache.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibHttpClient.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibRecordingConfig.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.dll
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibExeCache.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibHttpClient.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibProcessLog.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibRecordingConfig.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.pdb
+C:\Others\glovis\AppStarter\bin\x86\Debug\LibStarterModel.dll.config
+C:\Others\glovis\AppStarter\bin\x86\Debug\EntityFramework.xml
 C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.csprojResolveAssemblyReference.cache
+C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.dll
+C:\Others\glovis\AppStarter\obj\x86\Debug\AppStarter.pdb
