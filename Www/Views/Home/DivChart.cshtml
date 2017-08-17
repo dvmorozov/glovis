@@ -1,4 +1,0 @@
-﻿@using System.Globalization
-
-@*https://www.evernote.com/shard/s132/nl/14501366/515ae7cc-5203-4cb2-be8f-94f5e858d71f*@
-<video id="@Html.Raw("div_chart_" + ((long)ViewBag.chartID).ToString(CultureInfo.InvariantCulture))" preload="none" @Html.Raw("width=\"" + ((int)ViewBag.Width).ToString(CultureInfo.InvariantCulture) + "\" height=\"" + ((int)ViewBag.Height).ToString(CultureInfo.InvariantCulture) + "\"") controls autoplay><source src="@Html.Raw(ViewBag.FullURL)" type="video/ogg">Your browser does not support the video tag.</video>

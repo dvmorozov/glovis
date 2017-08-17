@@ -1,9 +1,0 @@
-E:\04 - github repos\glovis\packages\libcurlnet-1_3\src\bin\Debug\LibCurlNet.dll
-E:\04 - github repos\glovis\packages\libcurlnet-1_3\src\bin\Debug\LibCurlNet.pdb
-E:\04 - github repos\glovis\packages\libcurlnet-1_3\src\obj\Debug\src.csprojResolveAssemblyReference.cache
-E:\04 - github repos\glovis\packages\libcurlnet-1_3\src\obj\Debug\LibCurlNet.dll
-E:\04 - github repos\glovis\packages\libcurlnet-1_3\src\obj\Debug\LibCurlNet.pdb
-C:\Others\glovis\packages\libcurlnet-1_3\src\bin\Debug\LibCurlNet.dll
-C:\Others\glovis\packages\libcurlnet-1_3\src\bin\Debug\LibCurlNet.pdb
-C:\Others\glovis\packages\libcurlnet-1_3\src\obj\Debug\LibCurlNet.dll
-C:\Others\glovis\packages\libcurlnet-1_3\src\obj\Debug\LibCurlNet.pdb
